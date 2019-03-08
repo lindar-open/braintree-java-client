@@ -13,9 +13,7 @@ public class ModificationRequest {
     private Integer quantity;
     private Boolean neverExpires;
 
-    public static  to() {
-        return ObjectsAcolyte.copy();
+    public static ModificationRequest from(com.braintreegateway.ModificationRequest modificationRequest) {
+        return ObjectsAcolyte.copy(modificationRequest, new ModificationRequest());
     }
-
-
 }

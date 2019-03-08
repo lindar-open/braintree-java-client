@@ -15,10 +15,7 @@ public class MerchantRequest {
     public List<String> paymentMethods;
     public List<String> currencies;
 
-    public static  to() {
-        return ObjectsAcolyte.copy();
+    public static MerchantRequest from(com.braintreegateway.MerchantRequest merchantRequest) {
+        return ObjectsAcolyte.copy(merchantRequest, new MerchantRequest());
     }
-
-
-
 }

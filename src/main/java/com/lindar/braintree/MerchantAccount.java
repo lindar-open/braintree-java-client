@@ -44,10 +44,8 @@ public class MerchantAccount {
     private String currencyIsoCode;
     private Boolean isDefault;
 
-    public static  to() {
-        return ObjectsAcolyte.copy();
+    public static MerchantAccount from(com.braintreegateway.MerchantAccount merchantAccount) {
+        return ObjectsAcolyte.copy(merchantAccount, new MerchantAccount());
     }
-
-
 }
 

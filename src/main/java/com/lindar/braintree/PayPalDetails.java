@@ -25,9 +25,7 @@ public class PayPalDetails {
     private String transactionFeeCurrencyIsoCode;
     private String description;
 
-    public static  to() {
-        return ObjectsAcolyte.copy();
+    public static PayPalDetails from(com.braintreegateway.PayPalDetails payPalDetails) {
+        return ObjectsAcolyte.copy(payPalDetails, new PayPalDetails());
     }
-
-
 }

@@ -13,8 +13,7 @@ public class TransactionOptionsPayPalRequest {
     private String description;
     private Map<String, String> supplementaryData;
 
-    public static  to() {
-        return ObjectsAcolyte.copy();
+    public static TransactionOptionsPayPalRequest from(com.braintreegateway.TransactionOptionsPayPalRequest transactionOptionsPayPalRequest) {
+        return ObjectsAcolyte.copy(transactionOptionsPayPalRequest, new TransactionOptionsPayPalRequest());
     }
-
 }

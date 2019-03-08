@@ -18,9 +18,7 @@ public class Modification {
     private Integer numberOfBillingCycles;
     private String planId;
 
-    public static  to() {
-        return ObjectsAcolyte.copy();
+    public static Modification from(com.braintreegateway.Modification modification) {
+        return ObjectsAcolyte.copy(modification, new Modification());
     }
-
-
 }

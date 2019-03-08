@@ -11,9 +11,7 @@ public class TransactionLevelFeeReportRequest {
     private String date;
     private String merchantAccountId;
 
-    public static  to() {
-        return ObjectsAcolyte.copy();
+    public static TransactionLevelFeeReportRequest from(com.braintreegateway.TransactionLevelFeeReportRequest transactionLevelFeeReportRequest) {
+        return ObjectsAcolyte.copy(transactionLevelFeeReportRequest, new TransactionLevelFeeReportRequest());
     }
-
-
 }

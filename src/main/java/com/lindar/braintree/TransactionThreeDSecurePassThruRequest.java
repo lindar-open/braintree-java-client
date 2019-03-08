@@ -10,8 +10,7 @@ public class TransactionThreeDSecurePassThruRequest {
     private String cavv;
     private String xid;
 
-    public static TransactionThreeDSecurePassThruRequest to(com.braintreegateway) {
-        return ObjectsAcolyte.copy();
+    public static TransactionThreeDSecurePassThruRequest to(com.braintreegateway.TransactionThreeDSecurePassThruRequest transactionThreeDSecurePassThruRequest) {
+        return ObjectsAcolyte.copy(transactionThreeDSecurePassThruRequest, new TransactionThreeDSecurePassThruRequest());
     }
-
 }

@@ -14,9 +14,7 @@ public class PaymentMethodOptionsPayPalRequest {
     private String orderId;
     private BigDecimal amount;
 
-    public static  to() {
-        return ObjectsAcolyte.copy();
+    public static PaymentMethodOptionsPayPalRequest from(com.braintreegateway.PaymentMethodOptionsPayPalRequest paymentMethodOptionsPayPalRequest) {
+        return ObjectsAcolyte.copy(paymentMethodOptionsPayPalRequest, new PaymentMethodOptionsPayPalRequest());
     }
-
-
 }

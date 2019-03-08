@@ -11,9 +11,7 @@ import lombok.ToString;
 public class TransactionDescriptorRequest extends DescriptorRequest {
     private TransactionRequest parent;
 
-    public static  to() {
-        return ObjectsAcolyte.copy();
+    public static TransactionDescriptorRequest from(com.braintreegateway.TransactionDescriptorRequest transactionDescriptorRequest) {
+        return ObjectsAcolyte.copy(transactionDescriptorRequest, new TransactionDescriptorRequest());
     }
-
-
 }

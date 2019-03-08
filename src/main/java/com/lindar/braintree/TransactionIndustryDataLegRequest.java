@@ -27,9 +27,7 @@ public class TransactionIndustryDataLegRequest {
     private BigDecimal taxAmount;
     private String endorsementOrRestrictions;
 
-    public static  to() {
-        return ObjectsAcolyte.copy();
+    public static TransactionIndustryDataLegRequest from(com.braintreegateway.TransactionIndustryDataLegRequest transactionIndustryDataLegRequest) {
+        return ObjectsAcolyte.copy(transactionIndustryDataLegRequest, new TransactionIndustryDataLegRequest());
     }
-
-
 }

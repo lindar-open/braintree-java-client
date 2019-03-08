@@ -12,9 +12,7 @@ public class PaymentMethodAddressRequest extends AddressRequest {
 
     private PaymentMethodRequest parent;
 
-    public static  to() {
-        return ObjectsAcolyte.copy();
+    public static PaymentMethodAddressRequest from(com.braintreegateway.PaymentMethodAddressRequest paymentMethodAddressRequest) {
+        return ObjectsAcolyte.copy(paymentMethodAddressRequest, new PaymentMethodAddressRequest());
     }
-
-
 }

@@ -11,9 +11,7 @@ public class PaymentMethodForwardRequest {
     private String token;
     private String receivingMerchantId;
 
-    public static  to() {
-        return ObjectsAcolyte.copy();
+    public static PaymentMethodForwardRequest from(com.braintreegateway.PaymentMethodForwardRequest paymentMethodForwardRequest) {
+        return ObjectsAcolyte.copy(paymentMethodForwardRequest, new PaymentMethodForwardRequest());
     }
-
-
 }

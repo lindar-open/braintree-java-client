@@ -87,9 +87,7 @@ public class Transaction {
     private String networkTransactionId;
     private Calendar authorizationExpiresAt;
 
-    public static  to() {
-        return ObjectsAcolyte.copy();
+    public static Transaction from(com.braintreegateway.Transaction transaction) {
+        return ObjectsAcolyte.copy(transaction, new Transaction());
     }
-
-
 }

@@ -10,9 +10,7 @@ public final class TransactionDetails {
     private String id;
     private BigDecimal amount;
 
-    public static  to() {
-        return ObjectsAcolyte.copy();
+    public static TransactionDetails from(com.braintreegateway.TransactionDetails transactionDetails) {
+        return ObjectsAcolyte.copy(transactionDetails, new TransactionDetails());
     }
-
-
 }

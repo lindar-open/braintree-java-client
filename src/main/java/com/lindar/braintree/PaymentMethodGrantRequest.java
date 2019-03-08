@@ -2,6 +2,7 @@ package com.lindar.braintree;
 
 import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
+
 @Data
 public class PaymentMethodGrantRequest {
     private String sharedPaymentMethodToken;
@@ -9,11 +10,9 @@ public class PaymentMethodGrantRequest {
     private boolean includeBillingPostalCode;
     private String revokeAfter;
 
-    public static  to() {
-        return ObjectsAcolyte.copy();
+    public static PaymentMethodGrantRequest from(com.braintreegateway.PaymentMethodGrantRequest paymentMethodGrantRequest) {
+        return ObjectsAcolyte.copy(paymentMethodGrantRequest, new PaymentMethodGrantRequest());
     }
-
-
 }
 
 

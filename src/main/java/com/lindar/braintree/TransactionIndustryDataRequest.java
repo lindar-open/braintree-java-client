@@ -35,9 +35,7 @@ public class TransactionIndustryDataRequest {
     private Boolean restrictedTicket;
     private List<TransactionIndustryDataLegRequest> legRequests;
 
-    public static  to() {
-        return ObjectsAcolyte.copy();
+    public static TransactionIndustryDataRequest from(com.braintreegateway.TransactionIndustryDataRequest transactionIndustryDataRequest) {
+        return ObjectsAcolyte.copy(transactionIndustryDataRequest, new TransactionIndustryDataRequest());
     }
-
-
 }

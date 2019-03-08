@@ -16,9 +16,7 @@ public class PaymentMethodNonceDetails {
     private String username;
     private String venmoUserId;
 
-    public static  to() {
-        return ObjectsAcolyte.copy();
+    public static PaymentMethodNonceDetails from(com.braintreegateway.PaymentMethodNonceDetails paymentMethodNonceDetails) {
+        return ObjectsAcolyte.copy(paymentMethodNonceDetails, new PaymentMethodNonceDetails());
     }
-
-
 }

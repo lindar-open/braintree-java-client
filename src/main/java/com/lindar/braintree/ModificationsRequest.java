@@ -15,9 +15,7 @@ public class ModificationsRequest {
     private List<UpdateModificationRequest> updates;
     private List<String> removeModificationIds;
 
-    public static  to() {
-        return ObjectsAcolyte.copy();
+    public static ModificationsRequest from(com.braintreegateway.ModificationsRequest modificationsRequest) {
+        return ObjectsAcolyte.copy(modificationsRequest, new ModificationsRequest());
     }
-
-
 }

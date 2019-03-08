@@ -11,8 +11,7 @@ public class TransactionPayPalRequest {
     private String payerId;
     private String paymentId;
 
-    public static  to() {
-        return ObjectsAcolyte.copy();
+    public static TransactionPayPalRequest from(com.braintreegateway.TransactionPayPalRequest transactionPayPalRequest) {
+        return ObjectsAcolyte.copy(transactionPayPalRequest, new TransactionPayPalRequest());
     }
-
 }

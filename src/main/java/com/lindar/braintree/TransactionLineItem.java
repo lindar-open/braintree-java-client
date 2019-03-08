@@ -22,9 +22,7 @@ public class TransactionLineItem {
     private String url;
     private BigDecimal taxAmount;
 
-    public static  to() {
-        return ObjectsAcolyte.copy();
+    public static TransactionLineItem from(com.braintreegateway.TransactionLineItem transactionLineItem) {
+        return ObjectsAcolyte.copy(transactionLineItem, new TransactionLineItem());
     }
-
-
 }

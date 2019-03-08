@@ -11,9 +11,7 @@ public class TransactionLevelFeeReport {
     private List<TransactionLevelFeeReportRow> rows = new LinkedList<TransactionLevelFeeReportRow>();
     private Boolean valid;
 
-    public static  to() {
-        return ObjectsAcolyte.copy();
+    public static TransactionLevelFeeReport from(com.braintreegateway.TransactionLevelFeeReport transactionLevelFeeReport) {
+        return ObjectsAcolyte.copy(transactionLevelFeeReport, new TransactionLevelFeeReport());
     }
-
-
 }

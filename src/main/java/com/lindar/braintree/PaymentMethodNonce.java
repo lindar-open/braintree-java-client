@@ -16,9 +16,7 @@ public class PaymentMethodNonce {
     private String type;
     private BinData binData;
 
-    public static  to() {
-        return ObjectsAcolyte.copy();
+    public static PaymentMethodNonce from(com.braintreegateway.PaymentMethodNonce paymentMethodNonce) {
+        return ObjectsAcolyte.copy(paymentMethodNonce, new PaymentMethodNonce());
     }
-
-
 }

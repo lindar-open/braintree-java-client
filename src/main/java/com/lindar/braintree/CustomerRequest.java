@@ -32,9 +32,7 @@ public class CustomerRequest {
     private CustomerOptionsRequest optionsRequest;
     private TransactionRequest parent;
 
-    public static  to() {
-        return ObjectsAcolyte.copy();
+    public static CustomerRequest from(com.braintreegateway.CustomerRequest customerRequest) {
+        return ObjectsAcolyte.copy(customerRequest, new CustomerRequest());
     }
-
-
 }

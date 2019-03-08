@@ -19,9 +19,7 @@ public class Merchant {
     private OAuthCredentials credentials;
     private List<MerchantAccount> merchantAccounts;
 
-    public static  to() {
-        return ObjectsAcolyte.copy();
+    public static Merchant from(com.braintreegateway.Merchant merchant) {
+        return ObjectsAcolyte.copy(merchant, new Merchant());
     }
-
-
 }

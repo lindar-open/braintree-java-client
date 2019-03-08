@@ -12,9 +12,7 @@ public class PaymentMethodOptionsPayPalShippingRequest extends AddressRequest {
 
     private PaymentMethodOptionsPayPalRequest parent;
 
-    public static  to() {
-        return ObjectsAcolyte.copy();
+    public static PaymentMethodOptionsPayPalShippingRequest from(com.braintreegateway.PaymentMethodOptionsPayPalShippingRequest paymentMethodOptionsPayPalShippingRequest) {
+        return ObjectsAcolyte.copy(paymentMethodOptionsPayPalShippingRequest, new PaymentMethodOptionsPayPalShippingRequest());
     }
-
-
 }

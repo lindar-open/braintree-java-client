@@ -20,10 +20,7 @@ public class MerchantAccountRequest {
     private String masterMerchantAccountId;
     private String id;
 
-    public static  to() {
-        return ObjectsAcolyte.copy();
+    public static MerchantAccountRequest from(com.braintreegateway.MerchantAccountRequest merchantAccountRequest) {
+        return ObjectsAcolyte.copy(merchantAccountRequest, new MerchantAccountRequest());
     }
-
-
-
 }

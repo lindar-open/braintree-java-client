@@ -23,8 +23,7 @@ public class TransactionLineItemRequest {
     private String url;
     private BigDecimal taxAmount;
 
-    public static  to() {
-        return ObjectsAcolyte.copy();
+    public static TransactionLineItemRequest from(com.braintreegateway.TransactionLineItemRequest transactionLineItemRequest) {
+        return ObjectsAcolyte.copy(transactionLineItemRequest, new TransactionLineItemRequest());
     }
-
 }

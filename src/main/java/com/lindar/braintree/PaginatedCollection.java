@@ -4,6 +4,8 @@ import com.lindar.braintree.dependent.SimplePager;
 import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 
+import java.util.List;
+
 /**
  * A collection used to page through results.
  *
@@ -16,9 +18,17 @@ public class PaginatedCollection<T> /*implements Iterable<T>*/ {
     private SimplePager<T> pager;
     private int pageSize;
 
-    public static  to() {
-        return ObjectsAcolyte.copy();
+    @Data
+    private class PagedIterator<E> {
+        private PaginatedCollection<E> paginatedCollection;
+        private int pageSize;
+        private int currentPage;
+        private int index;
+        private int totalSize;
+        private List<E> items;
     }
 
-
+    public static PaginatedCollection from(com.braintreegateway.PaginatedCollection paginatedCollection) {
+        return ObjectsAcolyte.copy(paginatedCollection, new PaginatedCollection());
+    }
 }

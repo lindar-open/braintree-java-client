@@ -2,6 +2,7 @@ package com.lindar.braintree;
 
 import com.lindar.braintree.dependent.ExternalVaultRequest;
 import com.lindar.braintree.dependent.RiskDataTransactionRequest;
+import com.lindar.braintree.enums.TransactionType;
 import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 import java.math.BigDecimal;
@@ -43,7 +44,7 @@ public class TransactionRequest {
     private BigDecimal shippingAmount;
     private BigDecimal discountAmount;
     private String shipsFromPostalCode;
-    private Transaction.Type type;
+    private TransactionType type;
     private String venmoSdkPaymentMethodCode;
     private String paymentMethodNonce;
     private BigDecimal serviceFeeAmount;
@@ -61,8 +62,7 @@ public class TransactionRequest {
     private List<TransactionLineItemRequest> transactionLineItemRequests;
     private ExternalVaultRequest externalVaultRequest;
 
-    public static  to() {
-        return ObjectsAcolyte.copy();
+    public static TransactionRequest from(com.braintreegateway.TransactionRequest transactionRequest) {
+        return ObjectsAcolyte.copy(transactionRequest, new TransactionRequest());
     }
-
 }

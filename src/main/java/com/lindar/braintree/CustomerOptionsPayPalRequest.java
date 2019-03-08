@@ -15,9 +15,7 @@ public class CustomerOptionsPayPalRequest {
     private String orderId;
     private BigDecimal amount;
 
-    public static  to() {
-        return ObjectsAcolyte.copy();
+    public static CustomerOptionsPayPalRequest from(com.braintreegateway.CustomerOptionsPayPalRequest customerOptionsPayPalRequest) {
+        return ObjectsAcolyte.copy(customerOptionsPayPalRequest, new CustomerOptionsPayPalRequest());
     }
-
-
 }

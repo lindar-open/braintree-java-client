@@ -12,8 +12,7 @@ public class TransactionRefundRequest {
     private BigDecimal amount;
     private String orderId;
 
-    public static  to() {
-        return ObjectsAcolyte.copy();
+    public static TransactionRefundRequest from(com.braintreegateway.TransactionRefundRequest transactionRefundRequest) {
+        return ObjectsAcolyte.copy(transactionRefundRequest, new TransactionRefundRequest());
     }
-
 }

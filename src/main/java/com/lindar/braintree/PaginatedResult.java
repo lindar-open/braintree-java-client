@@ -11,9 +11,7 @@ public class PaginatedResult<T> {
     private int pageSize;
     private List<T> currentPage;
 
-    public static  to() {
-        return ObjectsAcolyte.copy();
+    public static PaginatedResult from(com.braintreegateway.PaginatedResult paginatedResult) {
+        return ObjectsAcolyte.copy(paginatedResult, new PaginatedResult());
     }
-
-
 }

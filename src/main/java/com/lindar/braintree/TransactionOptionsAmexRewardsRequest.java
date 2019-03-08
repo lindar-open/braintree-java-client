@@ -2,6 +2,7 @@ package com.lindar.braintree;
 
 import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
+
 @Data
 public class TransactionOptionsAmexRewardsRequest {
     private TransactionOptionsRequest parent;
@@ -10,8 +11,7 @@ public class TransactionOptionsAmexRewardsRequest {
     private String currencyIsoCode;
     private String requestId;
 
-    public static  to() {
-        return ObjectsAcolyte.copy();
+    public static TransactionOptionsAmexRewardsRequest from(com.braintreegateway.TransactionOptionsAmexRewardsRequest transactionOptionsAmexRewardsRequest) {
+        return ObjectsAcolyte.copy(transactionOptionsAmexRewardsRequest, new TransactionOptionsAmexRewardsRequest());
     }
-
 }

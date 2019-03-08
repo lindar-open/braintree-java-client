@@ -7,8 +7,7 @@ import lombok.Data;
 public class PaymentMethodDeleteRequest {
     private boolean revokeAllGrants;
 
-    public static  to() {
-        return ObjectsAcolyte.copy();
+    public static PaymentMethodDeleteRequest from(com.braintreegateway.PaymentMethodDeleteRequest paymentMethodDeleteRequest) {
+        return ObjectsAcolyte.copy(paymentMethodDeleteRequest, new PaymentMethodDeleteRequest());
     }
-
 }

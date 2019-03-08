@@ -21,9 +21,7 @@ public class PayPalAccount implements PaymentMethod {
     private Calendar updatedAt;
     private List<Subscription> subscriptions;
 
-    public static  to() {
-        return ObjectsAcolyte.copy();
+    public static PayPalAccount from(com.braintreegateway.PayPalAccount payPalAccount) {
+        return ObjectsAcolyte.copy(payPalAccount, new PayPalAccount());
     }
-
-
 }

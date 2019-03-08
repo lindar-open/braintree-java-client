@@ -11,9 +11,7 @@ import lombok.ToString;
 public class TransactionAddressRequest extends AddressRequest {
     private TransactionRequest parent;
 
-    public static  to() {
-        return ObjectsAcolyte.copy();
+    public static TransactionAddressRequest from(com.braintreegateway.TransactionAddressRequest transactionAddressRequest) {
+        return ObjectsAcolyte.copy(transactionAddressRequest, new TransactionAddressRequest());
     }
-
-
 }

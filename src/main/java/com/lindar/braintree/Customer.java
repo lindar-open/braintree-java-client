@@ -33,9 +33,7 @@ public class Customer {
     private List<SamsungPayCard> samsungPayCards;
     private List<Address> addresses;
 
-    public static  to() {
-        return ObjectsAcolyte.copy();
+    public static Customer from(com.braintreegateway.Customer customer) {
+        return ObjectsAcolyte.copy(customer, new Customer());
     }
-
-
 }

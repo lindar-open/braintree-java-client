@@ -11,9 +11,7 @@ public class TransactionCloneRequest {
     private TransactionOptionsCloneRequest transactionOptionsCloneRequest;
 
 
-    public static  to() {
-        return ObjectsAcolyte.copy();
+    public static TransactionCloneRequest from(com.braintreegateway.TransactionCloneRequest transactionCloneRequest) {
+        return ObjectsAcolyte.copy(transactionCloneRequest, new TransactionCloneRequest());
     }
-
-
 }

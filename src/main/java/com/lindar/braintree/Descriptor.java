@@ -19,9 +19,7 @@ public class Descriptor {
     private String phone;
     private String url;
 
-    public static  to() {
-        return ObjectsAcolyte.copy();
+    public static Descriptor from(com.braintreegateway.Descriptor descriptor) {
+        return ObjectsAcolyte.copy(descriptor, new Descriptor());
     }
-
-
 }

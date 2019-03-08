@@ -51,9 +51,7 @@ public class TransactionLevelFeeReportRow {
     private BigDecimal multicurrencyFeeCredit;
     private BigDecimal totalFeeAmount;
 
-    public static  to() {
-        return ObjectsAcolyte.copy();
+    public static TransactionLevelFeeReportRow from(com.braintreegateway.TransactionLevelFeeReportRow transactionLevelFeeReportRow) {
+        return ObjectsAcolyte.copy(transactionLevelFeeReportRow, new TransactionLevelFeeReportRow());
     }
-
-
 }

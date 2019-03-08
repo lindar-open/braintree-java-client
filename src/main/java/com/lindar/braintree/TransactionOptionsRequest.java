@@ -2,6 +2,7 @@ package com.lindar.braintree;
 
 import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
+
 @Data
 public class TransactionOptionsRequest {
     private Boolean addBillingAddressToPaymentMethod;
@@ -22,8 +23,7 @@ public class TransactionOptionsRequest {
     private TransactionOptionsThreeDSecureRequest transactionOptionsThreeDSecureRequest;
     private TransactionOptionsVenmoRequest transactionOptionsVenmoRequest;
 
-    public static  to() {
-        return ObjectsAcolyte.copy();
+    public static TransactionOptionsRequest from(com.braintreegateway.TransactionOptionsRequest transactionOptionsRequest) {
+        return ObjectsAcolyte.copy(transactionOptionsRequest, new TransactionOptionsRequest());
     }
-
 }

@@ -22,9 +22,7 @@ public class AddressRequest {
     private String company;
     protected String tagName;
 
-    public static  to() {
-        return ObjectsAcolyte.copy();
+    public static AddressRequest from(com.braintreegateway.AddressRequest addressRequest) {
+        return ObjectsAcolyte.copy(addressRequest, new AddressRequest());
     }
-
-
 }
