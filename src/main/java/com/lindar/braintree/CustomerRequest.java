@@ -1,7 +1,7 @@
 package com.lindar.braintree;
 
-import com.lindar.braintree.dependant.CreditCardRequest;
-import com.lindar.braintree.dependant.RiskDataCustomerRequest;
+import com.lindar.braintree.dependent.CreditCardRequest;
+import com.lindar.braintree.dependent.RiskDataCustomerRequest;
 import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 import java.util.Map;
@@ -36,7 +36,5 @@ public class CustomerRequest {
         return ObjectsAcolyte.copy();
     }
 
-    public static com.braintreegateway. from() {
-        return ObjectsAcolyte.copy();
-    }
+
 }

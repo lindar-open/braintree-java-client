@@ -1,6 +1,6 @@
 package com.lindar.braintree;
 
-import com.lindar.braintree.dependant.*;
+import com.lindar.braintree.dependent.*;
 import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 
@@ -37,7 +37,5 @@ public class Customer {
         return ObjectsAcolyte.copy();
     }
 
-    public static com.braintreegateway. from() {
-        return ObjectsAcolyte.copy();
-    }
+
 }

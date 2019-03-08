@@ -1,7 +1,7 @@
 package com.lindar.braintree;
 
-import com.lindar.braintree.dependant.ExternalVaultRequest;
-import com.lindar.braintree.dependant.RiskDataTransactionRequest;
+import com.lindar.braintree.dependent.ExternalVaultRequest;
+import com.lindar.braintree.dependent.RiskDataTransactionRequest;
 import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 import java.math.BigDecimal;
@@ -65,6 +65,4 @@ public class TransactionRequest {
         return ObjectsAcolyte.copy();
     }
 
-    public static com.braintreegateway. from() {
-        return ObjectsAcolyte.copy();
 }

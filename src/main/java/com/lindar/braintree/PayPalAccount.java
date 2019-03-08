@@ -1,7 +1,7 @@
 package com.lindar.braintree;
 
 
-import com.lindar.braintree.dependant.Subscription;
+import com.lindar.braintree.dependent.Subscription;
 import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 
@@ -25,7 +25,5 @@ public class PayPalAccount implements PaymentMethod {
         return ObjectsAcolyte.copy();
     }
 
-    public static com.braintreegateway. from() {
-        return ObjectsAcolyte.copy();
-    }
+
 }

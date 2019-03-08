@@ -1,9 +1,9 @@
 package com.lindar.braintree;
 
 
-import com.lindar.braintree.dependant.BusinessDetails;
-import com.lindar.braintree.dependant.FundingDetails;
-import com.lindar.braintree.dependant.IndividualDetails;
+import com.lindar.braintree.dependent.BusinessDetails;
+import com.lindar.braintree.dependent.FundingDetails;
+import com.lindar.braintree.dependent.IndividualDetails;
 import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 

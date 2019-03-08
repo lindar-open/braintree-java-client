@@ -14,7 +14,5 @@ public final class TransactionDetails {
         return ObjectsAcolyte.copy();
     }
 
-    public static com.braintreegateway. from() {
-        return ObjectsAcolyte.copy();
-    }
+
 }

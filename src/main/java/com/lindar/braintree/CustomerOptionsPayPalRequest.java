@@ -1,6 +1,6 @@
 package com.lindar.braintree;
 
-import com.lindar.braintree.dependant.CustomerOptionsPayPalShippingRequest;
+import com.lindar.braintree.dependent.CustomerOptionsPayPalShippingRequest;
 import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 import java.math.BigDecimal;
@@ -19,7 +19,5 @@ public class CustomerOptionsPayPalRequest {
         return ObjectsAcolyte.copy();
     }
 
-    public static com.braintreegateway. from() {
-        return ObjectsAcolyte.copy();
-    }
+
 }

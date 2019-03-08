@@ -1,6 +1,6 @@
 package com.lindar.braintree;
 
-import com.lindar.braintree.dependant.OAuthCredentials;
+import com.lindar.braintree.dependent.OAuthCredentials;
 import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 
@@ -23,7 +23,5 @@ public class Merchant {
         return ObjectsAcolyte.copy();
     }
 
-    public static com.braintreegateway. from() {
-        return ObjectsAcolyte.copy();
-    }
+
 }

@@ -1,9 +1,9 @@
 package com.lindar.braintree;
 
-import com.lindar.braintree.dependant.ApplicantDetailsRequest;
-import com.lindar.braintree.dependant.BusinessRequest;
-import com.lindar.braintree.dependant.FundingRequest;
-import com.lindar.braintree.dependant.IndividualRequest;
+import com.lindar.braintree.dependent.ApplicantDetailsRequest;
+import com.lindar.braintree.dependent.BusinessRequest;
+import com.lindar.braintree.dependent.FundingRequest;
+import com.lindar.braintree.dependent.IndividualRequest;
 import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 /**
@@ -24,8 +24,6 @@ public class MerchantAccountRequest {
         return ObjectsAcolyte.copy();
     }
 
-    public static com.braintreegateway. from() {
-        return ObjectsAcolyte.copy();
-    }
+
 
 }

@@ -1,7 +1,7 @@
 package com.lindar.braintree;
 
-import com.lindar.braintree.dependant.BinData;
-import com.lindar.braintree.dependant.ThreeDSecureInfo;
+import com.lindar.braintree.dependent.BinData;
+import com.lindar.braintree.dependent.ThreeDSecureInfo;
 import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 
@@ -20,7 +20,5 @@ public class PaymentMethodNonce {
         return ObjectsAcolyte.copy();
     }
 
-    public static com.braintreegateway. from() {
-        return ObjectsAcolyte.copy();
-    }
+
 }

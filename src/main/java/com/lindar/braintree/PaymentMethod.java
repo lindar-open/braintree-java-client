@@ -1,7 +1,6 @@
 package com.lindar.braintree;
 
-import com.lindar.braintree.dependant.Subscription;
-import lindar.acolyte.util.ObjectsAcolyte;
+import com.lindar.braintree.dependent.Subscription;
 
 import java.util.List;
 

@@ -11,13 +11,10 @@ import lombok.ToString;
 public class PaymentMethodAddressRequest extends AddressRequest {
 
     private PaymentMethodRequest parent;
-    protected Request optionsRequest;
 
     public static  to() {
         return ObjectsAcolyte.copy();
     }
 
-    public static com.braintreegateway. from() {
-        return ObjectsAcolyte.copy();
-    }
+
 }
