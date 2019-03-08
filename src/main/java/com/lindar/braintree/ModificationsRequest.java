@@ -2,6 +2,7 @@ package com.lindar.braintree;
 
 import com.lindar.braintree.dependant.AddModificationRequest;
 import com.lindar.braintree.dependant.SubscriptionRequest;
+import com.lindar.braintree.dependant.UpdateModificationRequest;
 import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 import java.util.List;

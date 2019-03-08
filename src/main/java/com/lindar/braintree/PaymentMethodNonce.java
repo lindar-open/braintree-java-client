@@ -1,5 +1,7 @@
 package com.lindar.braintree;
 
+import com.lindar.braintree.dependant.BinData;
+import com.lindar.braintree.dependant.ThreeDSecureInfo;
 import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 

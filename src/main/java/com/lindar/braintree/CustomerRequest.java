@@ -1,5 +1,7 @@
 package com.lindar.braintree;
 
+import com.lindar.braintree.dependant.CreditCardRequest;
+import com.lindar.braintree.dependant.RiskDataCustomerRequest;
 import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 import java.util.Map;

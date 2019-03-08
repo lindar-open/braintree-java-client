@@ -1,5 +1,6 @@
 package com.lindar.braintree;
 
+import com.lindar.braintree.dependant.UsBankAccountVerification;
 import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 @Data

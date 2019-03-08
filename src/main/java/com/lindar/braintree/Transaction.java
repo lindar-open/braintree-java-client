@@ -1,8 +1,8 @@
 package com.lindar.braintree;
 
 
-import com.lindar.braintree.enums.TransactionEscrowStatus;
-import com.lindar.braintree.enums.TransactionGatewayRejectionReason;
+import com.lindar.braintree.dependant.*;
+import com.lindar.braintree.enums.*;
 import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 
@@ -62,7 +62,7 @@ public class Transaction {
     private SamsungPayCardDetails samsungPayCardDetails;
     private String settlementBatchId;
     private Address shippingAddress;
-    private Status status;
+    private TransactionStatus status;
     private List<StatusEvent> statusHistory;
     private String subscriptionId;
     private Subscription subscription;
@@ -72,7 +72,7 @@ public class Transaction {
     private BigDecimal shippingAmount;
     private BigDecimal discountAmount;
     private String shipsFromPostalCode;
-    private Type type;
+    private TransactionType type;
     private Calendar updatedAt;
     private BigDecimal serviceFeeAmount;
     private String paymentInstrumentType;

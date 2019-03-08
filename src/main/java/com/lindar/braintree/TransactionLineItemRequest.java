@@ -1,5 +1,6 @@
 package com.lindar.braintree;
 
+import com.lindar.braintree.enums.TransactionKind;
 import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 import java.math.BigDecimal;
@@ -11,7 +12,7 @@ public class TransactionLineItemRequest {
     private BigDecimal quantity;
     private String name;
     private String description;
-    private TransactionLineItem.Kind kind;
+    private TransactionKind kind;
     private BigDecimal unitAmount;
     private BigDecimal unitTaxAmount;
     private BigDecimal totalAmount;

@@ -1,10 +1,12 @@
 package com.lindar.braintree;
 
 
+import com.lindar.braintree.dependant.Subscription;
 import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 
 import java.util.Calendar;
+import java.util.List;
 
 @Data
 public class PayPalAccount implements PaymentMethod {

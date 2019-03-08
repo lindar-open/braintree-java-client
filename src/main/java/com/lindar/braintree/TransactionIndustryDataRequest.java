@@ -9,7 +9,7 @@ import java.util.List;
 @Data
 public class TransactionIndustryDataRequest {
 
-    private final TransactionIndustryRequest parent;
+    private TransactionIndustryRequest parent;
     private String folioNumber;
     private String checkInDate;
     private String checkOutDate;

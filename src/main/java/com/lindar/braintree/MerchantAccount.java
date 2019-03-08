@@ -1,27 +1,53 @@
 package com.lindar.braintree;
 
 
+import com.lindar.braintree.dependant.BusinessDetails;
+import com.lindar.braintree.dependant.FundingDetails;
+import com.lindar.braintree.dependant.IndividualDetails;
 import lindar.acolyte.util.ObjectsAcolyte;
-import lombok.Value;
+import lombok.Data;
 
-@Value
+@Data
 public class MerchantAccount {
 
-    private final String id;
-    private final Transaction.Status status;
-    private final MerchantAccount masterMerchantAccount;
-    private final IndividualDetails individualDetails;
-    private final BusinessDetails businessDetails;
-    private final FundingDetails fundingDetails;
-    private final String currencyIsoCode;
-    private final Boolean isDefault;
+    public enum Status {
+        PENDING,
+        ACTIVE,
+        SUSPENDED,
+        UNRECOGNIZED
+    }
+
+    public enum FundingDestination {
+        BANK("bank"),
+        MOBILE_PHONE("mobile_phone"),
+        EMAIL("email"),
+        UNRECOGNIZED("unrecognized");
+
+        private final String name;
+
+        FundingDestination(String name) {
+            this.name = name;
+        }
+
+        @Override
+        public String toString() {
+            return name;
+        }
+    }
+
+    private String id;
+    private Status status;
+    private MerchantAccount masterMerchantAccount;
+    private IndividualDetails individualDetails;
+    private BusinessDetails businessDetails;
+    private FundingDetails fundingDetails;
+    private String currencyIsoCode;
+    private Boolean isDefault;
 
     public static  to() {
         return ObjectsAcolyte.copy();
     }
 
-    public static com.braintreegateway. from() {
-        return ObjectsAcolyte.copy();
-    }
+
 }
 

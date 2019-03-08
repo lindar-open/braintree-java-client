@@ -1,6 +1,6 @@
 package com.lindar.braintree;
 
-import com.braintreegateway.*;
+import com.lindar.braintree.dependant.*;
 import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 

@@ -1,4 +1,4 @@
-package com.lindar.braintree.dependant;
+package com.lindar.braintree.dependent;
 
 import com.lindar.braintree.Address;
 import com.lindar.braintree.PaymentMethod;
@@ -7,9 +7,11 @@ import lombok.Data;
 import java.util.*;
 
 @Data
-public class CreditCard implements PaymentMethod {
+public class VisaCheckoutCard implements PaymentMethod {
+
     private Address billingAddress;
     private String bin;
+    private String callId;
     private String cardholderName;
     private String cardType;
     private Calendar createdAt;

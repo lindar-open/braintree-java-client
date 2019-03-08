@@ -1,5 +1,7 @@
 package com.lindar.braintree;
 
+import com.lindar.braintree.dependant.ExternalVaultRequest;
+import com.lindar.braintree.dependant.RiskDataTransactionRequest;
 import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 import java.math.BigDecimal;

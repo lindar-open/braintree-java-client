@@ -2,6 +2,7 @@ package com.lindar.braintree;
 
 import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
+
 @Data
 public class TransactionPayPalRequest {
     private TransactionRequest parent;

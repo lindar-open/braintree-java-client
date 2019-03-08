@@ -1,4 +1,4 @@
-package com.lindar.braintree.dependant;
+package com.lindar.braintree.dependent;
 
 import com.lindar.braintree.ModificationsRequest;
 import lombok.Data;
