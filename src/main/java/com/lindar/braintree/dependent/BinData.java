@@ -1,5 +1,6 @@
 package com.lindar.braintree.dependent;
 
+import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 
 @Data
@@ -13,4 +14,8 @@ public class BinData {
     private String payroll;
     private String prepaid;
     private String productId;
+
+    public static BinData from(com.braintreegateway.BinData binData) {
+        return ObjectsAcolyte.copy(binData, new BinData());
+    }
 }

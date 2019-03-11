@@ -1,5 +1,6 @@
 package com.lindar.braintree.dependent;
 
+import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 
 @Data
@@ -24,4 +25,8 @@ public class VisaCheckoutCardDetails {
     private String productId;
     private String countryOfIssuance;
     private String issuingBank;
+
+    public static VisaCheckoutCardDetails from(com.braintreegateway.VisaCheckoutCardDetails visaCheckoutCardDetails) {
+        return ObjectsAcolyte.copy(visaCheckoutCardDetails, new VisaCheckoutCardDetails());
+    }
 }

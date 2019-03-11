@@ -1,5 +1,6 @@
 package com.lindar.braintree.dependent;
 
+import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -13,4 +14,8 @@ public class DisbursementDetails {
     private boolean success;
     private BigDecimal settlementCurrencyExchangeRate;
     private BigDecimal settlementAmount;
+
+    public static DisbursementDetails from(com.braintreegateway.DisbursementDetails disbursementDetails) {
+        return ObjectsAcolyte.copy(disbursementDetails, new DisbursementDetails());
+    }
 }

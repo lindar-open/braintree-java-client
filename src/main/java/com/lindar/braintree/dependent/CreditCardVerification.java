@@ -3,6 +3,7 @@ package com.lindar.braintree.dependent;
 import com.lindar.braintree.Address;
 import com.lindar.braintree.enums.ProcessorResponseType;
 import com.lindar.braintree.enums.TransactionGatewayRejectionReason;
+import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -32,4 +33,12 @@ public class CreditCardVerification {
     private Address billingAddress;
     private Calendar createdAt;
     private RiskData riskData;
+
+    public static CreditCardVerification from(com.braintreegateway.CreditCardVerification creditCardVerification) {
+        CreditCardVerification creditCardVerificationCopy = ObjectsAcolyte.copy(creditCardVerification, new CreditCardVerification());
+        creditCardVerificationCopy.setCreditCard(CreditCard.from(creditCardVerification.getCreditCard()));
+        creditCardVerificationCopy.setBillingAddress(Address.from(creditCardVerification.getBillingAddress()));
+        creditCardVerificationCopy.setRiskData(RiskData.from(creditCardVerification.getRiskData()));
+        return creditCardVerificationCopy;
+    }
 }

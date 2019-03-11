@@ -1,5 +1,6 @@
 package com.lindar.braintree.dependent;
 
+import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 
 @Data
@@ -12,4 +13,8 @@ public class ThreeDSecureInfo {
     private String eciFlag;
     private String xid;
     private String threeDSecureVersion;
+
+    public static ThreeDSecureInfo from(com.braintreegateway.ThreeDSecureInfo threeDSecureInfo) {
+        return ObjectsAcolyte.copy(threeDSecureInfo, new ThreeDSecureInfo());
+    }
 }

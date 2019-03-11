@@ -5,6 +5,7 @@ import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Data
 public class Customer {
@@ -34,6 +35,19 @@ public class Customer {
     private List<Address> addresses;
 
     public static Customer from(com.braintreegateway.Customer customer) {
-        return ObjectsAcolyte.copy(customer, new Customer());
+        Customer customerCopy = ObjectsAcolyte.copy(customer, new Customer());
+        customerCopy.setCreditCards(customer.getCreditCards().stream().map(CreditCard::from).collect(Collectors.toList()));
+        customerCopy.setPaypalAccounts(customer.getPayPalAccounts().stream().map(PayPalAccount::from).collect(Collectors.toList()));
+        customerCopy.setApplePayCards(customer.getApplePayCards().stream().map(ApplePayCard::from).collect(Collectors.toList()));
+        customerCopy.setAndroidPayCards(customer.getAndroidPayCards().stream().map(AndroidPayCard::from).collect(Collectors.toList()));
+        customerCopy.setAmexExpressCheckoutCards(customer.getAmexExpressCheckoutCards().stream().map(AmexExpressCheckoutCard::from).collect(Collectors.toList()));
+        customerCopy.setCoinbaseAccounts(customer.getCoinbaseAccounts().stream().map(CoinbaseAccount::from).collect(Collectors.toList()));
+        customerCopy.setVenmoAccounts(customer.getVenmoAccounts().stream().map(VenmoAccount::from).collect(Collectors.toList()));
+        customerCopy.setVisaCheckoutCards(customer.getVisaCheckoutCards().stream().map(VisaCheckoutCard::from).collect(Collectors.toList()));
+        customerCopy.setMasterpassCards(customer.getMasterpassCards().stream().map(MasterpassCard::from).collect(Collectors.toList()));
+        customerCopy.setUsBankAccounts(customer.getUsBankAccounts().stream().map(UsBankAccount::from).collect(Collectors.toList()));
+        customerCopy.setSamsungPayCards(customer.getSamsungPayCards().stream().map(SamsungPayCard::from).collect(Collectors.toList()));
+        customerCopy.setAddresses(customer.getAddresses().stream().map(Address::from).collect(Collectors.toList()));
+        return customerCopy;
     }
 }

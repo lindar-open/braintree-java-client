@@ -1,6 +1,7 @@
 package com.lindar.braintree.dependent;
 
 import com.lindar.braintree.ModificationsRequest;
+import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -30,4 +31,7 @@ public class SubscriptionRequest {
     private Integer trialDuration;
     private Subscription.DurationUnit trialDurationUnit;
 
+//    public static SubscriptionRequest from(com.braintreegateway.SubscriptionRequest subscriptionRequest ) {
+//        return ObjectsAcolyte.copy(subscriptionRequest, new SubscriptionRequest());
+//    }
 }

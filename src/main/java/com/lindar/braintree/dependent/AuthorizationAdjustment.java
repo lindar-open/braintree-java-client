@@ -1,6 +1,7 @@
 package com.lindar.braintree.dependent;
 
 import com.lindar.braintree.enums.ProcessorResponseType;
+import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -14,4 +15,8 @@ public class AuthorizationAdjustment {
     private String processorResponseCode;
     private String processorResponseText;
     private ProcessorResponseType processorResponseType;
+
+    public static AuthorizationAdjustment from(com.braintreegateway.AuthorizationAdjustment authorizationAdjustment) {
+        return ObjectsAcolyte.copy(authorizationAdjustment, new AuthorizationAdjustment());
+    }
 }

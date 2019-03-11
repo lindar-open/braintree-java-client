@@ -2,9 +2,11 @@ package com.lindar.braintree.dependent;
 
 import com.lindar.braintree.Address;
 import com.lindar.braintree.PaymentMethod;
+import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Data
 public class CreditCard implements PaymentMethod {
@@ -36,4 +38,12 @@ public class CreditCard implements PaymentMethod {
     private String token;
     private Calendar updatedAt;
     private CreditCardVerification verification;
+
+    public static CreditCard from(com.braintreegateway.CreditCard creditCard) {
+        CreditCard creditCardCopy = ObjectsAcolyte.copy(creditCard, new CreditCard());
+        creditCardCopy.setBillingAddress(Address.from(creditCard.getBillingAddress()));
+        creditCardCopy.setSubscriptions(creditCard.getSubscriptions().stream().map(Subscription::from).collect(Collectors.toList()));
+        creditCardCopy.setVerification(CreditCardVerification.from(creditCard.getVerification()));
+        return creditCardCopy;
+    }
 }

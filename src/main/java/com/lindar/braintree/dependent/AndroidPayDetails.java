@@ -1,5 +1,6 @@
 package com.lindar.braintree.dependent;
 
+import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 
 @Data
@@ -17,4 +18,8 @@ public class AndroidPayDetails {
     private String googleTransactionId;
     private String bin;
     private String imageUrl;
+
+    public static AndroidPayDetails from(com.braintreegateway.AndroidPayDetails androidPayDetails) {
+        return ObjectsAcolyte.copy(androidPayDetails, new AndroidPayDetails());
+    }
 }

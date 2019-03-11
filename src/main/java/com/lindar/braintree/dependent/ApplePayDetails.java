@@ -1,5 +1,6 @@
 package com.lindar.braintree.dependent;
 
+import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 
 @Data
@@ -24,4 +25,8 @@ public class ApplePayDetails {
     private String productId;
     private String bin;
     private String globalId;
+
+    public static ApplePayDetails from(com.braintreegateway.ApplePayDetails applePayDetails) {
+        return ObjectsAcolyte.copy(applePayDetails, new ApplePayDetails());
+    }
 }

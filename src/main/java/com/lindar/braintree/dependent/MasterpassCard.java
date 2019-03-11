@@ -2,10 +2,12 @@ package com.lindar.braintree.dependent;
 
 import com.lindar.braintree.Address;
 import com.lindar.braintree.PaymentMethod;
+import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 
 import java.util.Calendar;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Data
 public class MasterpassCard implements PaymentMethod {
@@ -37,4 +39,11 @@ public class MasterpassCard implements PaymentMethod {
     private List<Subscription> subscriptions;
     private String token;
     private Calendar updatedAt;
+
+    public static MasterpassCard from(com.braintreegateway.MasterpassCard masterpassCard) {
+        MasterpassCard masterpassCardCopy = ObjectsAcolyte.copy(masterpassCard, new MasterpassCard());
+        masterpassCardCopy.setBillingAddress(Address.from(masterpassCard.getBillingAddress()));
+        masterpassCardCopy.setSubscriptions(masterpassCard.getSubscriptions().stream().map(Subscription::from).collect(Collectors.toList()));
+        return masterpassCardCopy;
+    }
 }

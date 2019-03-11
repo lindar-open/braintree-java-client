@@ -1,5 +1,6 @@
 package com.lindar.braintree.dependent;
 
+import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 
 @Data
@@ -23,4 +24,8 @@ public class MasterpassCardDetails {
     private String productId;
     private String countryOfIssuance;
     private String issuingBank;
+
+    public static MasterpassCardDetails from(com.braintreegateway.MasterpassCardDetails masterpassCardDetails) {
+        return ObjectsAcolyte.copy(masterpassCardDetails, new MasterpassCardDetails());
+    }
 }

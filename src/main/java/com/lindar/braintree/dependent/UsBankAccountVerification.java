@@ -1,9 +1,12 @@
 package com.lindar.braintree.dependent;
 
 import com.lindar.braintree.enums.TransactionGatewayRejectionReason;
+import lindar.acolyte.util.ObjectsAcolyte;
+import lombok.Data;
 
 import java.util.Calendar;
 
+@Data
 public class UsBankAccountVerification {
 
     public enum Status {
@@ -54,4 +57,10 @@ public class UsBankAccountVerification {
     private Calendar createdAt;
     private TransactionGatewayRejectionReason gatewayRejectionReason;
     private UsBankAccount usBankAccount;
+
+    public static UsBankAccountVerification from(com.braintreegateway.UsBankAccountVerification usBankAccountVerification) {
+        UsBankAccountVerification usBankAccountVerificationCopy = ObjectsAcolyte.copy(usBankAccountVerification, new UsBankAccountVerification());
+        usBankAccountVerificationCopy.setUsBankAccount(UsBankAccount.from(usBankAccountVerification.getUsBankAccount()));
+        return usBankAccountVerificationCopy;
+    }
 }

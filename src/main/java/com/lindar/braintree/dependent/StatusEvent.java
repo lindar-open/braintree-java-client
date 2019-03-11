@@ -2,6 +2,7 @@ package com.lindar.braintree.dependent;
 
 import com.lindar.braintree.enums.TransactionSource;
 import com.lindar.braintree.enums.TransactionStatus;
+import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -14,4 +15,8 @@ public class StatusEvent {
     private Calendar timestamp;
     private TransactionSource source;
     private String user;
+
+    public static StatusEvent from(com.braintreegateway.StatusEvent statusEvent) {
+        return ObjectsAcolyte.copy(statusEvent, new StatusEvent());
+    }
 }

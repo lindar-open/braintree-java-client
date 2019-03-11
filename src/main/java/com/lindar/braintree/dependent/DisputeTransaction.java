@@ -1,5 +1,6 @@
 package com.lindar.braintree.dependent;
 
+import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -13,4 +14,8 @@ public final class DisputeTransaction {
     private String orderId;
     private String paymentInstrumentSubtype;
     private String purchaseOrderNumber;
+
+    public static DisputeTransaction from(com.braintreegateway.DisputeTransaction disputeTransaction) {
+        return ObjectsAcolyte.copy(disputeTransaction, new DisputeTransaction());
+    }
 }

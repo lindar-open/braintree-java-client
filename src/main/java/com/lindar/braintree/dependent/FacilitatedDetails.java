@@ -1,10 +1,15 @@
 package com.lindar.braintree.dependent;
 
+import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 
 @Data
 public final class FacilitatedDetails {
-    private final String merchantId;
-    private final String merchantName;
-    private final String paymentMethodNonce;
+    private String merchantId;
+    private String merchantName;
+    private String paymentMethodNonce;
+
+    public static FacilitatedDetails from(com.braintreegateway.FacilitatedDetails facilitatedDetails) {
+        return ObjectsAcolyte.copy(facilitatedDetails, new FacilitatedDetails());
+    }
 }

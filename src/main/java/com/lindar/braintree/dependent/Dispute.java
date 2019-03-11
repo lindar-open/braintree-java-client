@@ -1,12 +1,16 @@
 package com.lindar.braintree.dependent;
 
 import com.lindar.braintree.TransactionDetails;
+import lindar.acolyte.util.ObjectsAcolyte;
+import lombok.Data;
 
 import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.List;
+import java.util.stream.Collectors;
 
 //final
+@Data
 public class Dispute {
     public enum Status {
         OPEN,
@@ -64,4 +68,13 @@ public class Dispute {
     private BigDecimal wonAmount;
     private TransactionDetails transactionDetails;
     private DisputeTransaction transaction;
+
+    public static Dispute from(com.braintreegateway.Dispute dispute) {
+        Dispute disputeCopy = ObjectsAcolyte.copy(dispute, new Dispute());
+        disputeCopy.setEvidence(dispute.getEvidence().stream().map(DisputeEvidence::from).collect(Collectors.toList()));
+        disputeCopy.setStatusHistory(dispute.getStatusHistory().stream().map(DisputeStatusHistory::from).collect(Collectors.toList()));
+        disputeCopy.setTransaction(DisputeTransaction.from(dispute.getTransaction()));
+        disputeCopy.setTransactionDetails(TransactionDetails.from(dispute.getTransactionDetails()));
+        return disputeCopy;
+    }
 }

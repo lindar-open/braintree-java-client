@@ -1,13 +1,16 @@
 package com.lindar.braintree.dependent;
 
 import com.lindar.braintree.Descriptor;
+import com.lindar.braintree.Modification;
 import com.lindar.braintree.Transaction;
+import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Data
 public class Subscription {
@@ -54,7 +57,7 @@ public class Subscription {
         }
     }
 
-    private ArrayList<AddOn> addOns;
+    private ArrayList<Modification> addOns;
     private BigDecimal balance;
     private Integer billingDayOfMonth;
     private Calendar billingPeriodEndDate;
@@ -63,7 +66,7 @@ public class Subscription {
     private Integer daysPastDue;
     private Descriptor descriptor;
     private String description;
-    private ArrayList<Discount> discounts;
+    private ArrayList<Modification> discounts;
     private Integer failureCount;
     private Calendar createdAt;
     private Calendar updatedAt;
@@ -85,4 +88,14 @@ public class Subscription {
     private List<Transaction> transactions;
     private Integer trialDuration;
     private DurationUnit trialDurationUnit;
+
+    public static Subscription from(com.braintreegateway.Subscription subscription) {
+        Subscription subscriptionCopy = ObjectsAcolyte.copy(subscription, new Subscription());
+        subscriptionCopy.setAddOns(new ArrayList<>(subscription.getAddOns().stream().map(AddOn::from).collect(Collectors.toList())));
+        subscriptionCopy.setDiscounts(new ArrayList<>(subscription.getDiscounts().stream().map(Discount::from).collect(Collectors.toList())));
+        subscriptionCopy.setDescriptor(Descriptor.from(subscription.getDescriptor()));
+        subscriptionCopy.setStatusHistory(subscription.getStatusHistory().stream().map(SubscriptionStatusEvent::from).collect(Collectors.toList()));
+        subscriptionCopy.setTransactions(subscription.getTransactions().stream().map(Transaction::from).collect(Collectors.toList()));
+        return subscriptionCopy;
+    }
 }

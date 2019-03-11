@@ -1,5 +1,6 @@
 package com.lindar.braintree.dependent;
 
+import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 
 @Data
@@ -12,4 +13,10 @@ public class UsBankAccountDetails {
     private String imageUrl;
     private String bankName;
     private AchMandate achMandate;
+
+    public static UsBankAccountDetails from(com.braintreegateway.UsBankAccountDetails usBankAccountDetails) {
+        UsBankAccountDetails usBankAccountDetailsCopy = ObjectsAcolyte.copy(usBankAccountDetails, new UsBankAccountDetails());
+        usBankAccountDetailsCopy.setAchMandate(AchMandate.from(usBankAccountDetails.getAchMandate()));
+        return usBankAccountDetailsCopy;
+    }
 }
