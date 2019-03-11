@@ -1,6 +1,5 @@
 package com.lindar.braintree;
 
-import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 
 /**
@@ -11,7 +10,7 @@ public class TransactionLevelFeeReportRequest {
     private String date;
     private String merchantAccountId;
 
-    public static TransactionLevelFeeReportRequest from(com.braintreegateway.TransactionLevelFeeReportRequest transactionLevelFeeReportRequest) {
-        return ObjectsAcolyte.copy(transactionLevelFeeReportRequest, new TransactionLevelFeeReportRequest());
-    }
+//    public static TransactionLevelFeeReportRequest from(com.braintreegateway.TransactionLevelFeeReportRequest transactionLevelFeeReportRequest) {
+//        return ObjectsAcolyte.copy(transactionLevelFeeReportRequest, new TransactionLevelFeeReportRequest());
+//    }
 }

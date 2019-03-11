@@ -17,4 +17,8 @@ public class ApplicantDetailsRequest {
     private String routingNumber;
     private String accountNumber;
     private MerchantAccountRequest parent;
+
+//    public static ApplicantDetailsRequest from(com.braintreegateway.ApplicantDetailsRequest applicantDetailsRequest) {
+//        return ObjectsAcolyte.copy(applicantDetailsRequest, new ApplicantDetailsRequest());
+//    }
 }

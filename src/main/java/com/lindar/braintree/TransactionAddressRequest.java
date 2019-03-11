@@ -1,6 +1,5 @@
 package com.lindar.braintree;
 
-import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -11,7 +10,7 @@ import lombok.ToString;
 public class TransactionAddressRequest extends AddressRequest {
     private TransactionRequest parent;
 
-    public static TransactionAddressRequest from(com.braintreegateway.TransactionAddressRequest transactionAddressRequest) {
-        return ObjectsAcolyte.copy(transactionAddressRequest, new TransactionAddressRequest());
-    }
+//    public static TransactionAddressRequest from(com.braintreegateway.TransactionAddressRequest transactionAddressRequest) {
+//        return ObjectsAcolyte.copy(transactionAddressRequest, new TransactionAddressRequest());
+//    }
 }

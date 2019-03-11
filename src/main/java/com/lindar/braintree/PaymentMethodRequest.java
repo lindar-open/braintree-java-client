@@ -1,6 +1,5 @@
 package com.lindar.braintree;
 
-import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 
 @Data
@@ -25,7 +24,7 @@ public class PaymentMethodRequest {
     private Boolean paypalVaultWithoutUpgrade;
     private String venmoSdkPaymentMethodCode;
 
-    public static PaymentMethodRequest from(com.braintreegateway.PaymentMethodRequest paymentMethodRequest) {
-        return ObjectsAcolyte.copy(paymentMethodRequest, new PaymentMethodRequest());
-    }
+//    public static PaymentMethodRequest from(com.braintreegateway.PaymentMethodRequest paymentMethodRequest) {
+//        return ObjectsAcolyte.copy(paymentMethodRequest, new PaymentMethodRequest());
+//    }
 }

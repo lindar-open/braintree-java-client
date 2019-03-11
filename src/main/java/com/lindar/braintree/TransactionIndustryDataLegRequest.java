@@ -1,6 +1,5 @@
 package com.lindar.braintree;
 
-import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -27,7 +26,7 @@ public class TransactionIndustryDataLegRequest {
     private BigDecimal taxAmount;
     private String endorsementOrRestrictions;
 
-    public static TransactionIndustryDataLegRequest from(com.braintreegateway.TransactionIndustryDataLegRequest transactionIndustryDataLegRequest) {
-        return ObjectsAcolyte.copy(transactionIndustryDataLegRequest, new TransactionIndustryDataLegRequest());
-    }
+//    public static TransactionIndustryDataLegRequest from(com.braintreegateway.TransactionIndustryDataLegRequest transactionIndustryDataLegRequest) {
+//        return ObjectsAcolyte.copy(transactionIndustryDataLegRequest, new TransactionIndustryDataLegRequest());
+//    }
 }

@@ -3,7 +3,6 @@ package com.lindar.braintree;
 import com.lindar.braintree.dependent.ExternalVaultRequest;
 import com.lindar.braintree.dependent.RiskDataTransactionRequest;
 import com.lindar.braintree.enums.TransactionType;
-import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 import java.math.BigDecimal;
 import java.util.List;
@@ -62,7 +61,7 @@ public class TransactionRequest {
     private List<TransactionLineItemRequest> transactionLineItemRequests;
     private ExternalVaultRequest externalVaultRequest;
 
-    public static TransactionRequest from(com.braintreegateway.TransactionRequest transactionRequest) {
-        return ObjectsAcolyte.copy(transactionRequest, new TransactionRequest());
-    }
+//    public static TransactionRequest from(com.braintreegateway.TransactionRequest transactionRequest) {
+//        return ObjectsAcolyte.copy(transactionRequest, new TransactionRequest());
+//    }
 }

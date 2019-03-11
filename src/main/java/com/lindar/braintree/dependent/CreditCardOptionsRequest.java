@@ -12,4 +12,8 @@ public class CreditCardOptionsRequest {
     private Boolean makeDefault;
     private String updateExistingToken;
     private String venmoSdkSession;
+
+//    public static CreditCardOptionsRequest from(com.braintreegateway.CreditCardOptionsRequest creditCardOptionsRequest) {
+//        return ObjectsAcolyte.copy(creditCardOptionsRequest, new CreditCardOptionsRequest());
+//    }
 }

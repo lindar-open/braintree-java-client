@@ -26,4 +26,8 @@ public class CreditCardRequest {
     private String paymentMethodToken;
     private String paymentMethodNonce;
     private String venmoSdkPaymentMethodCode;
+
+//    public static CreditCardRequest from(com.braintreegateway.CreditCardRequest creditCardRequest) {
+//        return ObjectsAcolyte.copy(creditCardRequest, new CreditCardRequest());
+//    }
 }

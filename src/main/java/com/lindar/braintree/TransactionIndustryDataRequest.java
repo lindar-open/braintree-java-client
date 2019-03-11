@@ -1,6 +1,5 @@
 package com.lindar.braintree;
 
-import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -35,7 +34,7 @@ public class TransactionIndustryDataRequest {
     private Boolean restrictedTicket;
     private List<TransactionIndustryDataLegRequest> legRequests;
 
-    public static TransactionIndustryDataRequest from(com.braintreegateway.TransactionIndustryDataRequest transactionIndustryDataRequest) {
-        return ObjectsAcolyte.copy(transactionIndustryDataRequest, new TransactionIndustryDataRequest());
-    }
+//    public static TransactionIndustryDataRequest from(com.braintreegateway.TransactionIndustryDataRequest transactionIndustryDataRequest) {
+//        return ObjectsAcolyte.copy(transactionIndustryDataRequest, new TransactionIndustryDataRequest());
+//    }
 }

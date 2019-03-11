@@ -1,6 +1,5 @@
 package com.lindar.braintree;
 
-import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 import java.math.BigDecimal;
 
@@ -14,7 +13,7 @@ public class PaymentMethodOptionsPayPalRequest {
     private String orderId;
     private BigDecimal amount;
 
-    public static PaymentMethodOptionsPayPalRequest from(com.braintreegateway.PaymentMethodOptionsPayPalRequest paymentMethodOptionsPayPalRequest) {
-        return ObjectsAcolyte.copy(paymentMethodOptionsPayPalRequest, new PaymentMethodOptionsPayPalRequest());
-    }
+//    public static PaymentMethodOptionsPayPalRequest from(com.braintreegateway.PaymentMethodOptionsPayPalRequest paymentMethodOptionsPayPalRequest) {
+//        return ObjectsAcolyte.copy(paymentMethodOptionsPayPalRequest, new PaymentMethodOptionsPayPalRequest());
+//    }
 }

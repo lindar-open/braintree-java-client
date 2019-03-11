@@ -1,6 +1,5 @@
 package com.lindar.braintree;
 
-import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -12,7 +11,7 @@ public class PaymentMethodOptionsPayPalShippingRequest extends AddressRequest {
 
     private PaymentMethodOptionsPayPalRequest parent;
 
-    public static PaymentMethodOptionsPayPalShippingRequest from(com.braintreegateway.PaymentMethodOptionsPayPalShippingRequest paymentMethodOptionsPayPalShippingRequest) {
-        return ObjectsAcolyte.copy(paymentMethodOptionsPayPalShippingRequest, new PaymentMethodOptionsPayPalShippingRequest());
-    }
+//    public static PaymentMethodOptionsPayPalShippingRequest from(com.braintreegateway.PaymentMethodOptionsPayPalShippingRequest paymentMethodOptionsPayPalShippingRequest) {
+//        return ObjectsAcolyte.copy(paymentMethodOptionsPayPalShippingRequest, new PaymentMethodOptionsPayPalShippingRequest());
+//    }
 }

@@ -1,6 +1,5 @@
 package com.lindar.braintree;
 
-import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 
 @Data
@@ -14,7 +13,7 @@ public class TransactionCreditCardRequest {
     private TransactionRequest parent;
     private String token;
 
-    public static TransactionCreditCardRequest from(com.braintreegateway.TransactionCreditCardRequest transactionCreditCardRequest) {
-        return ObjectsAcolyte.copy(transactionCreditCardRequest, new TransactionCreditCardRequest());
-    }
+//    public static TransactionCreditCardRequest from(com.braintreegateway.TransactionCreditCardRequest transactionCreditCardRequest) {
+//        return ObjectsAcolyte.copy(transactionCreditCardRequest, new TransactionCreditCardRequest());
+//    }
 }

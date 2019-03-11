@@ -1,7 +1,6 @@
 package com.lindar.braintree;
 
 import com.lindar.braintree.dependent.UsBankAccountVerification;
-import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 
 @Data
@@ -16,7 +15,7 @@ public class PaymentMethodOptionsRequest {
     private PaymentMethodOptionsPayPalRequest paymentMethodOptionsPayPalRequest;
     private UsBankAccountVerification.VerificationMethod usBankAccountVerificationMethod;
 
-    public static PaymentMethodOptionsRequest from(com.braintreegateway.PaymentMethodOptionsRequest paymentMethodOptionsRequest) {
-        return ObjectsAcolyte.copy(paymentMethodOptionsRequest, new PaymentMethodOptionsRequest());
-    }
+//    public static PaymentMethodOptionsRequest from(com.braintreegateway.PaymentMethodOptionsRequest paymentMethodOptionsRequest) {
+//        return ObjectsAcolyte.copy(paymentMethodOptionsRequest, new PaymentMethodOptionsRequest());
+//    }
 }

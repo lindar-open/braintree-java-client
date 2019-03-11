@@ -4,7 +4,6 @@ import com.lindar.braintree.dependent.ApplicantDetailsRequest;
 import com.lindar.braintree.dependent.BusinessRequest;
 import com.lindar.braintree.dependent.FundingRequest;
 import com.lindar.braintree.dependent.IndividualRequest;
-import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 /**
  * Provides a fluent interface to build up requests around {@link MerchantAccount MerchantAccounts}.
@@ -20,7 +19,7 @@ public class MerchantAccountRequest {
     private String masterMerchantAccountId;
     private String id;
 
-    public static MerchantAccountRequest from(com.braintreegateway.MerchantAccountRequest merchantAccountRequest) {
-        return ObjectsAcolyte.copy(merchantAccountRequest, new MerchantAccountRequest());
-    }
+//    public static MerchantAccountRequest from(com.braintreegateway.MerchantAccountRequest merchantAccountRequest) {
+//        return ObjectsAcolyte.copy(merchantAccountRequest, new MerchantAccountRequest());
+//    }
 }

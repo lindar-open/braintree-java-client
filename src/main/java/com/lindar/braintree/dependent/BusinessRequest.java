@@ -10,4 +10,8 @@ public class BusinessRequest {
     private BusinessAddressRequest address;
     private String taxId;
     private MerchantAccountRequest parent;
+
+//    public static BusinessRequest from(com.braintreegateway.BusinessRequest businessRequest) {
+//        return ObjectsAcolyte.copy(businessRequest, new BusinessRequest());
+//    }
 }

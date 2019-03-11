@@ -1,6 +1,5 @@
 package com.lindar.braintree;
 
-import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 import java.util.Map;
 
@@ -13,7 +12,7 @@ public class TransactionOptionsPayPalRequest {
     private String description;
     private Map<String, String> supplementaryData;
 
-    public static TransactionOptionsPayPalRequest from(com.braintreegateway.TransactionOptionsPayPalRequest transactionOptionsPayPalRequest) {
-        return ObjectsAcolyte.copy(transactionOptionsPayPalRequest, new TransactionOptionsPayPalRequest());
-    }
+//    public static TransactionOptionsPayPalRequest from(com.braintreegateway.TransactionOptionsPayPalRequest transactionOptionsPayPalRequest) {
+//        return ObjectsAcolyte.copy(transactionOptionsPayPalRequest, new TransactionOptionsPayPalRequest());
+//    }
 }

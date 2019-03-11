@@ -1,6 +1,5 @@
 package com.lindar.braintree;
 
-import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 import java.math.BigDecimal;
 
@@ -11,7 +10,7 @@ public class TransactionCloneRequest {
     private TransactionOptionsCloneRequest transactionOptionsCloneRequest;
 
 
-    public static TransactionCloneRequest from(com.braintreegateway.TransactionCloneRequest transactionCloneRequest) {
-        return ObjectsAcolyte.copy(transactionCloneRequest, new TransactionCloneRequest());
-    }
+//    public static TransactionCloneRequest from(com.braintreegateway.TransactionCloneRequest transactionCloneRequest) {
+//        return ObjectsAcolyte.copy(transactionCloneRequest, new TransactionCloneRequest());
+//    }
 }

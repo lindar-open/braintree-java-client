@@ -1,7 +1,6 @@
 package com.lindar.braintree;
 
 import com.lindar.braintree.enums.TransactionKind;
-import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 import java.math.BigDecimal;
 
@@ -23,7 +22,7 @@ public class TransactionLineItemRequest {
     private String url;
     private BigDecimal taxAmount;
 
-    public static TransactionLineItemRequest from(com.braintreegateway.TransactionLineItemRequest transactionLineItemRequest) {
-        return ObjectsAcolyte.copy(transactionLineItemRequest, new TransactionLineItemRequest());
-    }
+//    public static TransactionLineItemRequest from(com.braintreegateway.TransactionLineItemRequest transactionLineItemRequest) {
+//        return ObjectsAcolyte.copy(transactionLineItemRequest, new TransactionLineItemRequest());
+//    }
 }

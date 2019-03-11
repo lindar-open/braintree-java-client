@@ -1,6 +1,5 @@
 package com.lindar.braintree;
 
-import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 
 @Data
@@ -23,7 +22,7 @@ public class TransactionOptionsRequest {
     private TransactionOptionsThreeDSecureRequest transactionOptionsThreeDSecureRequest;
     private TransactionOptionsVenmoRequest transactionOptionsVenmoRequest;
 
-    public static TransactionOptionsRequest from(com.braintreegateway.TransactionOptionsRequest transactionOptionsRequest) {
-        return ObjectsAcolyte.copy(transactionOptionsRequest, new TransactionOptionsRequest());
-    }
+//    public static TransactionOptionsRequest from(com.braintreegateway.TransactionOptionsRequest transactionOptionsRequest) {
+//        return ObjectsAcolyte.copy(transactionOptionsRequest, new TransactionOptionsRequest());
+//    }
 }

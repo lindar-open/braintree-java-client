@@ -11,4 +11,8 @@ public class RiskDataTransactionRequest {
     private String customerBrowser;
     private String customerIP;
     private TransactionRequest parent;
+
+//    public static RiskDataTransactionRequest from(com.braintreegateway.RiskDataTransactionRequest riskDataTransactionRequest) {
+//        return ObjectsAcolyte.copy(riskDataTransactionRequest, new RiskDataTransactionRequest());
+//    }
 }

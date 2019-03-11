@@ -13,4 +13,8 @@ public class IndividualRequest {
     private String dateOfBirth;
     private String ssn;
     private MerchantAccountRequest parent;
+
+//    public static IndividualRequest from(com.braintreegateway.IndividualRequest individualRequest) {
+//        return ObjectsAcolyte.copy(individualRequest, new IndividualRequest());
+//    }
 }

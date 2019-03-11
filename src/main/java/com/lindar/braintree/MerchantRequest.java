@@ -1,6 +1,5 @@
 package com.lindar.braintree;
 
-import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 import java.util.List;
 
@@ -15,7 +14,7 @@ public class MerchantRequest {
     public List<String> paymentMethods;
     public List<String> currencies;
 
-    public static MerchantRequest from(com.braintreegateway.MerchantRequest merchantRequest) {
-        return ObjectsAcolyte.copy(merchantRequest, new MerchantRequest());
-    }
+//    public static MerchantRequest from(com.braintreegateway.MerchantRequest merchantRequest) {
+//        return ObjectsAcolyte.copy(merchantRequest, new MerchantRequest());
+//    }
 }

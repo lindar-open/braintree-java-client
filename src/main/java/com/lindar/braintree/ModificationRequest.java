@@ -1,6 +1,5 @@
 package com.lindar.braintree;
 
-import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 import java.math.BigDecimal;
 
@@ -13,7 +12,7 @@ public class ModificationRequest {
     private Integer quantity;
     private Boolean neverExpires;
 
-    public static ModificationRequest from(com.braintreegateway.ModificationRequest modificationRequest) {
-        return ObjectsAcolyte.copy(modificationRequest, new ModificationRequest());
-    }
+//    public static ModificationRequest from(com.braintreegateway.ModificationRequest modificationRequest) {
+//        return ObjectsAcolyte.copy(modificationRequest, new ModificationRequest());
+//    }
 }
