@@ -5,6 +5,7 @@ import lombok.Data;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Data
 public class TransactionLevelFeeReport {
@@ -12,6 +13,8 @@ public class TransactionLevelFeeReport {
     private Boolean valid;
 
     public static TransactionLevelFeeReport from(com.braintreegateway.TransactionLevelFeeReport transactionLevelFeeReport) {
-        return ObjectsAcolyte.copy(transactionLevelFeeReport, new TransactionLevelFeeReport());
+        TransactionLevelFeeReport transactionLevelFeeReportCopy = ObjectsAcolyte.copy(transactionLevelFeeReport, new TransactionLevelFeeReport());
+        transactionLevelFeeReportCopy.setRows(transactionLevelFeeReport.getRows().stream().map(TransactionLevelFeeReportRow::from).collect(Collectors.toList()));
+        return transactionLevelFeeReportCopy;
     }
 }

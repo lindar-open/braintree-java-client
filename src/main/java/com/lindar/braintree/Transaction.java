@@ -7,14 +7,16 @@ import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Data
 public class Transaction {
 
-    private List<AddOn> addOns;
+    private List<Modification> addOns;
     private BigDecimal amount;
     private String avsErrorResponseCode;
     private String avsPostalCodeResponseCode;
@@ -30,7 +32,7 @@ public class Transaction {
     private DisbursementDetails disbursementDetails;
     private List<Dispute> disputes;
     private Descriptor descriptor;
-    private List<Discount> discounts;
+    private List<Modification> discounts;
     private TransactionEscrowStatus escrowStatus;
     private TransactionGatewayRejectionReason gatewayRejectionReason;
     private String id;
@@ -88,6 +90,35 @@ public class Transaction {
     private Calendar authorizationExpiresAt;
 
     public static Transaction from(com.braintreegateway.Transaction transaction) {
-        return ObjectsAcolyte.copy(transaction, new Transaction());
+        Transaction transactionCopy = ObjectsAcolyte.copy(transaction, new Transaction());
+        transactionCopy.setAddOns(transaction.getAddOns().stream().map(AddOn::from).collect(Collectors.toList()));
+        transactionCopy.setBillingAddress(Address.from(transaction.getBillingAddress()));
+        transactionCopy.setCreditCard(CreditCard.from(transaction.getCreditCard()));
+        transactionCopy.setCustomer(Customer.from(transaction.getCustomer()));
+        transactionCopy.setDisbursementDetails(DisbursementDetails.from(transaction.getDisbursementDetails()));
+        transactionCopy.setDisputes(transaction.getDisputes().stream().map(Dispute::from).collect(Collectors.toList()));
+        transactionCopy.setDescriptor(Descriptor.from(transaction.getDescriptor()));
+        transactionCopy.setDiscounts(transaction.getDiscounts().stream().map(Discount::from).collect(Collectors.toList()));
+        transactionCopy.setPaypalDetails(PayPalDetails.from(transaction.getPayPalDetails()));
+        transactionCopy.setApplePayDetails(ApplePayDetails.from(transaction.getApplePayDetails()));
+        transactionCopy.setAndroidPayDetails(AndroidPayDetails.from(transaction.getAndroidPayDetails()));
+        transactionCopy.setAmexExpressCheckoutDetails(AmexExpressCheckoutDetails.from(transaction.getAmexExpressCheckoutDetails()));
+        transactionCopy.setVenmoAccountDetails(VenmoAccountDetails.from(transaction.getVenmoAccountDetails()));
+        transactionCopy.setUsBankAccountDetails(UsBankAccountDetails.from(transaction.getUsBankAccountDetails()));
+        transactionCopy.setIdealPaymentDetails(IdealPaymentDetails.from(transaction.getIdealPaymentDetails()));
+        transactionCopy.setVisaCheckoutCardDetails(VisaCheckoutCardDetails.from(transaction.getVisaCheckoutCardDetails()));
+        transactionCopy.setMasterpassCardDetails(MasterpassCardDetails.from(transaction.getMasterpassCardDetails()));
+        transactionCopy.setSamsungPayCardDetails(SamsungPayCardDetails.from(transaction.getSamsungPayCardDetails()));
+        transactionCopy.setShippingAddress(Address.from(transaction.getShippingAddress()));
+        transactionCopy.setStatusHistory(transaction.getStatusHistory().stream().map(StatusEvent::from).collect(Collectors.toList()));
+        transactionCopy.setSubscription(Subscription.from(transaction.getSubscription()));
+        transactionCopy.setSubscriptionDetails(SubscriptionDetails.from(transaction.getSubscriptionDetails()));
+        transactionCopy.setRiskData(RiskData.from(transaction.getRiskData()));
+        transactionCopy.setThreeDSecureInfo(ThreeDSecureInfo.from(transaction.getThreeDSecureInfo()));
+        transactionCopy.setCoinbaseDetails(CoinbaseDetails.from(transaction.getCoinbaseDetails()));
+        transactionCopy.setAuthorizationAdjustments(transaction.getAuthorizationAdjustments().stream().map(AuthorizationAdjustment::from).collect(Collectors.toList()));
+        transactionCopy.setFacilitatedDetails(FacilitatedDetails.from(transaction.getFacilitatedDetails()));
+        transactionCopy.setFacilitatorDetails(FacilitatorDetails.from(transaction.getFacilitatorDetails()));
+        return transactionCopy;
     }
 }

@@ -5,6 +5,7 @@ import lindar.acolyte.util.ObjectsAcolyte;
 import lombok.Data;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Data
 public class Merchant {
@@ -20,6 +21,9 @@ public class Merchant {
     private List<MerchantAccount> merchantAccounts;
 
     public static Merchant from(com.braintreegateway.Merchant merchant) {
-        return ObjectsAcolyte.copy(merchant, new Merchant());
+        Merchant merchantCopy = ObjectsAcolyte.copy(merchant, new Merchant());
+        merchantCopy.setCredentials(OAuthCredentials.from(merchant.getCredentials()));
+        merchantCopy.setMerchantAccounts(merchant.getMerchantAccounts().stream().map(MerchantAccount::from).collect(Collectors.toList()));
+        return merchantCopy;
     }
 }

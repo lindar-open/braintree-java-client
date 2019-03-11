@@ -17,6 +17,10 @@ public class PaymentMethodNonce {
     private BinData binData;
 
     public static PaymentMethodNonce from(com.braintreegateway.PaymentMethodNonce paymentMethodNonce) {
-        return ObjectsAcolyte.copy(paymentMethodNonce, new PaymentMethodNonce());
+        PaymentMethodNonce paymentMethodNonceCopy = ObjectsAcolyte.copy(paymentMethodNonce, new PaymentMethodNonce());
+        paymentMethodNonceCopy.setDetails(PaymentMethodNonceDetails.from(paymentMethodNonce.getDetails()));
+        paymentMethodNonceCopy.setThreeDSecureInfo(ThreeDSecureInfo.from(paymentMethodNonce.getThreeDSecureInfo()));
+        paymentMethodNonceCopy.setBinData(BinData.from(paymentMethodNonce.getBinData()));
+        return paymentMethodNonceCopy;
     }
 }

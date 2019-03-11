@@ -7,6 +7,7 @@ import lombok.Data;
 
 import java.util.Calendar;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Data
 public class PayPalAccount implements PaymentMethod {
@@ -22,10 +23,14 @@ public class PayPalAccount implements PaymentMethod {
     private List<Subscription> subscriptions;
 
     public static PayPalAccount from(com.braintreegateway.PayPalAccount payPalAccount) {
-        return ObjectsAcolyte.copy(payPalAccount, new PayPalAccount());
+        PayPalAccount payPalAccountCopy = ObjectsAcolyte.copy(payPalAccount, new PayPalAccount());
+        payPalAccountCopy.setSubscriptions(payPalAccount.getSubscriptions().stream().map(Subscription::from).collect(Collectors.toList()));
+        return payPalAccountCopy;
     }
 
     public static PayPalAccount from(com.braintreegateway.PaymentMethod paymentMethod) {
-        return ObjectsAcolyte.copy(paymentMethod, new PayPalAccount());
+        PayPalAccount payPalAccountCopy = ObjectsAcolyte.copy(paymentMethod, new PayPalAccount());
+        payPalAccountCopy.setSubscriptions(paymentMethod.getSubscriptions().stream().map(Subscription::from).collect(Collectors.toList()));
+        return payPalAccountCopy;
     }
 }

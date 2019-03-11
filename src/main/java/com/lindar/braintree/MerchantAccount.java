@@ -45,7 +45,12 @@ public class MerchantAccount {
     private Boolean isDefault;
 
     public static MerchantAccount from(com.braintreegateway.MerchantAccount merchantAccount) {
-        return ObjectsAcolyte.copy(merchantAccount, new MerchantAccount());
+        MerchantAccount merchantAccountCopy = ObjectsAcolyte.copy(merchantAccount, new MerchantAccount());
+        merchantAccountCopy.setMasterMerchantAccount(MerchantAccount.from(merchantAccount.getMasterMerchantAccount()));
+        merchantAccountCopy.setIndividualDetails(IndividualDetails.from(merchantAccount.getIndividualDetails()));
+        merchantAccountCopy.setBusinessDetails(BusinessDetails.from(merchantAccount.getBusinessDetails()));
+        merchantAccountCopy.setFundingDetails(FundingDetails.from(merchantAccount.getFundingDetails()));
+        return merchantAccountCopy;
     }
 }
 
