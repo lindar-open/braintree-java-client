@@ -13,13 +13,13 @@ import java.util.Map;
 public class Result<T> {
 
     private UsBankAccountVerification usBankAccountVerification;
-    private CreditCardVerification creditCardVerification;
-    private Transaction transaction;
-    private Subscription subscription;
-    private ValidationErrors errors;
-    private Map<String, String> parameters;
-    private String message;
-    private T target;
+    private CreditCardVerification    creditCardVerification;
+    private Transaction               transaction;
+    private Subscription              subscription;
+    private ValidationErrors          errors;
+    private Map<String, String>       parameters;
+    private String                    message;
+    private T                         target;
 
     public static Result from(com.braintreegateway.Result result) {
         Result resultCopy = ObjectsAcolyte.copy(result, new Result());
