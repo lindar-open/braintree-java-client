@@ -91,11 +91,13 @@ public class Subscription {
 
     public static Subscription from(com.braintreegateway.Subscription subscription) {
         Subscription subscriptionCopy = ObjectsAcolyte.copy(subscription, new Subscription());
-        subscriptionCopy.setAddOns(new ArrayList<>(subscription.getAddOns().stream().map(AddOn::from).collect(Collectors.toList())));
-        subscriptionCopy.setDiscounts(new ArrayList<>(subscription.getDiscounts().stream().map(Discount::from).collect(Collectors.toList())));
-        subscriptionCopy.setDescriptor(Descriptor.from(subscription.getDescriptor()));
-        subscriptionCopy.setStatusHistory(subscription.getStatusHistory().stream().map(SubscriptionStatusEvent::from).collect(Collectors.toList()));
-        subscriptionCopy.setTransactions(subscription.getTransactions().stream().map(Transaction::from).collect(Collectors.toList()));
+        if (!ObjectsAcolyte.objectNullOrEmpty(subscription)) {
+            if (subscription.getAddOns() != null) subscriptionCopy.setAddOns(new ArrayList<>(subscription.getAddOns().stream().map(AddOn::from).collect(Collectors.toList())));
+            if (subscription.getDiscounts() != null) subscriptionCopy.setDiscounts(new ArrayList<>(subscription.getDiscounts().stream().map(Discount::from).collect(Collectors.toList())));
+            if (subscription.getDescriptor() != null) subscriptionCopy.setDescriptor(Descriptor.from(subscription.getDescriptor()));
+            if (subscription.getStatusHistory() != null) subscriptionCopy.setStatusHistory(subscription.getStatusHistory().stream().map(SubscriptionStatusEvent::from).collect(Collectors.toList()));
+            if (subscription.getTransactions() != null) subscriptionCopy.setTransactions(subscription.getTransactions().stream().map(Transaction::from).collect(Collectors.toList()));
+        }
         return subscriptionCopy;
     }
 }

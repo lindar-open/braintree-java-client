@@ -23,7 +23,9 @@ public class CoinbaseAccount implements PaymentMethod {
 
     public static CoinbaseAccount from(com.braintreegateway.CoinbaseAccount coinbaseAccount) {
         CoinbaseAccount coinbaseAccountCopy = ObjectsAcolyte.copy(coinbaseAccount, new CoinbaseAccount());
-        coinbaseAccountCopy.setSubscriptions(coinbaseAccount.getSubscriptions().stream().map(Subscription::from).collect(Collectors.toList()));
+        if (!ObjectsAcolyte.objectNullOrEmpty(coinbaseAccount)) {
+            if (coinbaseAccount.getSubscriptions() != null) coinbaseAccountCopy.setSubscriptions(coinbaseAccount.getSubscriptions().stream().map(Subscription::from).collect(Collectors.toList()));
+        }
         return coinbaseAccountCopy;
     }
 }

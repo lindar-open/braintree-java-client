@@ -18,13 +18,17 @@ public class UnknownPaymentMethod implements PaymentMethod {
 
     public static UnknownPaymentMethod from(com.braintreegateway.UnknownPaymentMethod unknownPaymentMethod) {
         UnknownPaymentMethod unknownPaymentMethodCopy = ObjectsAcolyte.copy(unknownPaymentMethod, new UnknownPaymentMethod());
-        unknownPaymentMethodCopy.setSubscriptions(unknownPaymentMethod.getSubscriptions().stream().map(Subscription::from).collect(Collectors.toList()));
+        if (!ObjectsAcolyte.objectNullOrEmpty(unknownPaymentMethod)) {
+            if (unknownPaymentMethod.getSubscriptions() != null) unknownPaymentMethodCopy.setSubscriptions(unknownPaymentMethod.getSubscriptions().stream().map(Subscription::from).collect(Collectors.toList()));
+        }
         return unknownPaymentMethodCopy;
     }
 
     public static UnknownPaymentMethod from(com.braintreegateway.PaymentMethod unknownPaymentMethod) {
         UnknownPaymentMethod unknownPaymentMethodCopy = ObjectsAcolyte.copy(unknownPaymentMethod, new UnknownPaymentMethod());
-        unknownPaymentMethodCopy.setSubscriptions(unknownPaymentMethod.getSubscriptions().stream().map(Subscription::from).collect(Collectors.toList()));
+        if (!ObjectsAcolyte.objectNullOrEmpty(unknownPaymentMethod)) {
+            if (unknownPaymentMethod.getSubscriptions() != null) unknownPaymentMethodCopy.setSubscriptions(unknownPaymentMethod.getSubscriptions().stream().map(Subscription::from).collect(Collectors.toList()));
+        }
         return unknownPaymentMethodCopy;
     }
 }

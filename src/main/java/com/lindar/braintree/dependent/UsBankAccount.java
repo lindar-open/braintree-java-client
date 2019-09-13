@@ -25,9 +25,11 @@ public class UsBankAccount implements PaymentMethod {
 
     public static UsBankAccount from(com.braintreegateway.UsBankAccount usBankAccount) {
         UsBankAccount usBankAccountCopy = ObjectsAcolyte.copy(usBankAccount, new UsBankAccount());
-        usBankAccountCopy.setSubscriptions(usBankAccount.getSubscriptions().stream().map(Subscription::from).collect(Collectors.toList()));
-        usBankAccountCopy.setAchMandate(AchMandate.from(usBankAccount.getAchMandate()));
-        usBankAccountCopy.setVerifications(usBankAccount.getVerifications().stream().map(UsBankAccountVerification::from).collect(Collectors.toList()));
+        if (!ObjectsAcolyte.objectNullOrEmpty(usBankAccount)) {
+            if (usBankAccount.getSubscriptions() != null) usBankAccountCopy.setSubscriptions(usBankAccount.getSubscriptions().stream().map(Subscription::from).collect(Collectors.toList()));
+            if (usBankAccount.getAchMandate() != null) usBankAccountCopy.setAchMandate(AchMandate.from(usBankAccount.getAchMandate()));
+            if (usBankAccount.getVerifications() != null) usBankAccountCopy.setVerifications(usBankAccount.getVerifications().stream().map(UsBankAccountVerification::from).collect(Collectors.toList()));
+        }
         return usBankAccountCopy;
     }
 }

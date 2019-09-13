@@ -42,8 +42,10 @@ public class MasterpassCard implements PaymentMethod {
 
     public static MasterpassCard from(com.braintreegateway.MasterpassCard masterpassCard) {
         MasterpassCard masterpassCardCopy = ObjectsAcolyte.copy(masterpassCard, new MasterpassCard());
-        masterpassCardCopy.setBillingAddress(Address.from(masterpassCard.getBillingAddress()));
-        masterpassCardCopy.setSubscriptions(masterpassCard.getSubscriptions().stream().map(Subscription::from).collect(Collectors.toList()));
+        if (!ObjectsAcolyte.objectNullOrEmpty(masterpassCard)) {
+            if (masterpassCard.getBillingAddress() != null) masterpassCardCopy.setBillingAddress(Address.from(masterpassCard.getBillingAddress()));
+            if (masterpassCard.getSubscriptions() != null) masterpassCardCopy.setSubscriptions(masterpassCard.getSubscriptions().stream().map(Subscription::from).collect(Collectors.toList()));
+        }
         return masterpassCardCopy;
     }
 }

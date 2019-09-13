@@ -16,7 +16,9 @@ public class UsBankAccountDetails {
 
     public static UsBankAccountDetails from(com.braintreegateway.UsBankAccountDetails usBankAccountDetails) {
         UsBankAccountDetails usBankAccountDetailsCopy = ObjectsAcolyte.copy(usBankAccountDetails, new UsBankAccountDetails());
-        usBankAccountDetailsCopy.setAchMandate(AchMandate.from(usBankAccountDetails.getAchMandate()));
+        if (!ObjectsAcolyte.objectNullOrEmpty(usBankAccountDetails)) {
+            if (usBankAccountDetails.getAchMandate() != null) usBankAccountDetailsCopy.setAchMandate(AchMandate.from(usBankAccountDetails.getAchMandate()));
+        }
         return usBankAccountDetailsCopy;
     }
 }

@@ -13,8 +13,10 @@ public class ValidationErrors {
 
     public static ValidationErrors from(com.braintreegateway.ValidationErrors validationErrors) {
         ValidationErrors validationErrorsCopy = ObjectsAcolyte.copy(validationErrors, new ValidationErrors());
-        validationErrorsCopy.setErrors(validationErrors.getAllValidationErrors().stream().map(ValidationError::from).collect(Collectors.toList()));
-        validationErrorsCopy.setNestedErrors(validationErrors.getAllDeepValidationErrors().stream().map(ValidationError::from).collect(Collectors.toList()));
+        if (!ObjectsAcolyte.objectNullOrEmpty(validationErrors)) {
+            if (validationErrors.getAllValidationErrors() != null) validationErrorsCopy.setErrors(validationErrors.getAllValidationErrors().stream().map(ValidationError::from).collect(Collectors.toList()));
+            if (validationErrors.getAllDeepValidationErrors() != null) validationErrorsCopy.setNestedErrors(validationErrors.getAllDeepValidationErrors().stream().map(ValidationError::from).collect(Collectors.toList()));
+        }
         return validationErrorsCopy;
     }
 }

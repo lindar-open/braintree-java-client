@@ -41,9 +41,11 @@ public class CreditCard implements PaymentMethod {
 
     public static CreditCard from(com.braintreegateway.CreditCard creditCard) {
         CreditCard creditCardCopy = ObjectsAcolyte.copy(creditCard, new CreditCard());
-        creditCardCopy.setBillingAddress(Address.from(creditCard.getBillingAddress()));
-        creditCardCopy.setSubscriptions(creditCard.getSubscriptions().stream().map(Subscription::from).collect(Collectors.toList()));
-        creditCardCopy.setVerification(CreditCardVerification.from(creditCard.getVerification()));
+        if (!ObjectsAcolyte.objectNullOrEmpty(creditCard)) {
+            if (creditCard.getBillingAddress() != null) creditCardCopy.setBillingAddress(Address.from(creditCard.getBillingAddress()));
+            if (creditCard.getSubscriptions() != null) creditCardCopy.setSubscriptions(creditCard.getSubscriptions().stream().map(Subscription::from).collect(Collectors.toList()));
+            if (creditCard.getVerification() != null) creditCardCopy.setVerification(CreditCardVerification.from(creditCard.getVerification()));
+        }
         return creditCardCopy;
     }
 }

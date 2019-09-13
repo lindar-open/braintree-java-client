@@ -91,34 +91,36 @@ public class Transaction {
 
     public static Transaction from(com.braintreegateway.Transaction transaction) {
         Transaction transactionCopy = ObjectsAcolyte.copy(transaction, new Transaction());
-        transactionCopy.setAddOns(transaction.getAddOns().stream().map(AddOn::from).collect(Collectors.toList()));
-        transactionCopy.setBillingAddress(Address.from(transaction.getBillingAddress()));
-        transactionCopy.setCreditCard(CreditCard.from(transaction.getCreditCard()));
-        transactionCopy.setCustomer(Customer.from(transaction.getCustomer()));
-        transactionCopy.setDisbursementDetails(DisbursementDetails.from(transaction.getDisbursementDetails()));
-        transactionCopy.setDisputes(transaction.getDisputes().stream().map(Dispute::from).collect(Collectors.toList()));
-        transactionCopy.setDescriptor(Descriptor.from(transaction.getDescriptor()));
-        transactionCopy.setDiscounts(transaction.getDiscounts().stream().map(Discount::from).collect(Collectors.toList()));
-        transactionCopy.setPaypalDetails(PayPalDetails.from(transaction.getPayPalDetails()));
-        transactionCopy.setApplePayDetails(ApplePayDetails.from(transaction.getApplePayDetails()));
-        transactionCopy.setAndroidPayDetails(AndroidPayDetails.from(transaction.getAndroidPayDetails()));
-        transactionCopy.setAmexExpressCheckoutDetails(AmexExpressCheckoutDetails.from(transaction.getAmexExpressCheckoutDetails()));
-        transactionCopy.setVenmoAccountDetails(VenmoAccountDetails.from(transaction.getVenmoAccountDetails()));
-        transactionCopy.setUsBankAccountDetails(UsBankAccountDetails.from(transaction.getUsBankAccountDetails()));
-        transactionCopy.setIdealPaymentDetails(IdealPaymentDetails.from(transaction.getIdealPaymentDetails()));
-        transactionCopy.setVisaCheckoutCardDetails(VisaCheckoutCardDetails.from(transaction.getVisaCheckoutCardDetails()));
-        transactionCopy.setMasterpassCardDetails(MasterpassCardDetails.from(transaction.getMasterpassCardDetails()));
-        transactionCopy.setSamsungPayCardDetails(SamsungPayCardDetails.from(transaction.getSamsungPayCardDetails()));
-        transactionCopy.setShippingAddress(Address.from(transaction.getShippingAddress()));
-        transactionCopy.setStatusHistory(transaction.getStatusHistory().stream().map(StatusEvent::from).collect(Collectors.toList()));
-        transactionCopy.setSubscription(Subscription.from(transaction.getSubscription()));
-        transactionCopy.setSubscriptionDetails(SubscriptionDetails.from(transaction.getSubscriptionDetails()));
-        transactionCopy.setRiskData(RiskData.from(transaction.getRiskData()));
-        transactionCopy.setThreeDSecureInfo(ThreeDSecureInfo.from(transaction.getThreeDSecureInfo()));
-        transactionCopy.setCoinbaseDetails(CoinbaseDetails.from(transaction.getCoinbaseDetails()));
-        transactionCopy.setAuthorizationAdjustments(transaction.getAuthorizationAdjustments().stream().map(AuthorizationAdjustment::from).collect(Collectors.toList()));
-        transactionCopy.setFacilitatedDetails(FacilitatedDetails.from(transaction.getFacilitatedDetails()));
-        transactionCopy.setFacilitatorDetails(FacilitatorDetails.from(transaction.getFacilitatorDetails()));
+        if (!ObjectsAcolyte.objectNullOrEmpty(transaction)) {
+            if (transaction.getAddOns() != null) transactionCopy.setAddOns(transaction.getAddOns().stream().map(AddOn::from).collect(Collectors.toList()));
+            if (transaction.getBillingAddress() != null) transactionCopy.setBillingAddress(Address.from(transaction.getBillingAddress()));
+            if (transaction.getCreditCard() != null) transactionCopy.setCreditCard(CreditCard.from(transaction.getCreditCard()));
+            if (transaction.getCustomer() != null) transactionCopy.setCustomer(Customer.from(transaction.getCustomer()));
+            if (transaction.getDisbursementDetails() != null) transactionCopy.setDisbursementDetails(DisbursementDetails.from(transaction.getDisbursementDetails()));
+            if (transaction.getDisputes() != null) transactionCopy.setDisputes(transaction.getDisputes().stream().map(Dispute::from).collect(Collectors.toList()));
+            if (transaction.getDescriptor() != null) transactionCopy.setDescriptor(Descriptor.from(transaction.getDescriptor()));
+            if (transaction.getDiscounts() != null) transactionCopy.setDiscounts(transaction.getDiscounts().stream().map(Discount::from).collect(Collectors.toList()));
+            if (transaction.getPayPalDetails() != null) transactionCopy.setPaypalDetails(PayPalDetails.from(transaction.getPayPalDetails()));
+            if (transaction.getApplePayDetails() != null) transactionCopy.setApplePayDetails(ApplePayDetails.from(transaction.getApplePayDetails()));
+            if (transaction.getAndroidPayDetails() != null) transactionCopy.setAndroidPayDetails(AndroidPayDetails.from(transaction.getAndroidPayDetails()));
+            if (transaction.getAmexExpressCheckoutDetails() != null) transactionCopy.setAmexExpressCheckoutDetails(AmexExpressCheckoutDetails.from(transaction.getAmexExpressCheckoutDetails()));
+            if (transaction.getVenmoAccountDetails() != null) transactionCopy.setVenmoAccountDetails(VenmoAccountDetails.from(transaction.getVenmoAccountDetails()));
+            if (transaction.getUsBankAccountDetails() != null) transactionCopy.setUsBankAccountDetails(UsBankAccountDetails.from(transaction.getUsBankAccountDetails()));
+            if (transaction.getIdealPaymentDetails() != null) transactionCopy.setIdealPaymentDetails(IdealPaymentDetails.from(transaction.getIdealPaymentDetails()));
+            if (transaction.getVisaCheckoutCardDetails() != null) transactionCopy.setVisaCheckoutCardDetails(VisaCheckoutCardDetails.from(transaction.getVisaCheckoutCardDetails()));
+            if (transaction.getMasterpassCardDetails() != null) transactionCopy.setMasterpassCardDetails(MasterpassCardDetails.from(transaction.getMasterpassCardDetails()));
+            if (transaction.getSamsungPayCardDetails() != null) transactionCopy.setSamsungPayCardDetails(SamsungPayCardDetails.from(transaction.getSamsungPayCardDetails()));
+            if (transaction.getShippingAddress() != null) transactionCopy.setShippingAddress(Address.from(transaction.getShippingAddress()));
+            if (transaction.getStatusHistory() != null) transactionCopy.setStatusHistory(transaction.getStatusHistory().stream().map(StatusEvent::from).collect(Collectors.toList()));
+            if (transaction.getSubscription() != null) transactionCopy.setSubscription(Subscription.from(transaction.getSubscription()));
+            if (transaction.getSubscriptionDetails() != null) transactionCopy.setSubscriptionDetails(SubscriptionDetails.from(transaction.getSubscriptionDetails()));
+            if (transaction.getRiskData() != null) transactionCopy.setRiskData(RiskData.from(transaction.getRiskData()));
+            if (transaction.getThreeDSecureInfo() != null) transactionCopy.setThreeDSecureInfo(ThreeDSecureInfo.from(transaction.getThreeDSecureInfo()));
+            if (transaction.getCoinbaseDetails() != null) transactionCopy.setCoinbaseDetails(CoinbaseDetails.from(transaction.getCoinbaseDetails()));
+            if (transaction.getAuthorizationAdjustments() != null) transactionCopy.setAuthorizationAdjustments(transaction.getAuthorizationAdjustments().stream().map(AuthorizationAdjustment::from).collect(Collectors.toList()));
+            if (transaction.getFacilitatedDetails() != null) transactionCopy.setFacilitatedDetails(FacilitatedDetails.from(transaction.getFacilitatedDetails()));
+            if (transaction.getFacilitatorDetails() != null) transactionCopy.setFacilitatorDetails(FacilitatorDetails.from(transaction.getFacilitatorDetails()));
+        }
         return transactionCopy;
     }
 }

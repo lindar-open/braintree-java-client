@@ -23,7 +23,9 @@ public class VenmoAccount implements PaymentMethod {
 
     public static VenmoAccount from(com.braintreegateway.VenmoAccount venmoAccount) {
         VenmoAccount venmoAccountCopy = ObjectsAcolyte.copy(venmoAccount, new VenmoAccount());
-        venmoAccountCopy.setSubscriptions(venmoAccount.getSubscriptions().stream().map(Subscription::from).collect(Collectors.toList()));
+        if (!ObjectsAcolyte.objectNullOrEmpty(venmoAccount)) {
+            if (venmoAccount.getSubscriptions() != null) venmoAccountCopy.setSubscriptions(venmoAccount.getSubscriptions().stream().map(Subscription::from).collect(Collectors.toList()));
+        }
         return venmoAccountCopy;
     }
 }

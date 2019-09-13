@@ -36,9 +36,11 @@ public class CreditCardVerification {
 
     public static CreditCardVerification from(com.braintreegateway.CreditCardVerification creditCardVerification) {
         CreditCardVerification creditCardVerificationCopy = ObjectsAcolyte.copy(creditCardVerification, new CreditCardVerification());
-        creditCardVerificationCopy.setCreditCard(CreditCard.from(creditCardVerification.getCreditCard()));
-        creditCardVerificationCopy.setBillingAddress(Address.from(creditCardVerification.getBillingAddress()));
-        creditCardVerificationCopy.setRiskData(RiskData.from(creditCardVerification.getRiskData()));
+        if (!ObjectsAcolyte.objectNullOrEmpty(creditCardVerification)) {
+            if (creditCardVerification.getCreditCard() != null) creditCardVerificationCopy.setCreditCard(CreditCard.from(creditCardVerification.getCreditCard()));
+            if (creditCardVerification.getBillingAddress() != null) creditCardVerificationCopy.setBillingAddress(Address.from(creditCardVerification.getBillingAddress()));
+            if (creditCardVerification.getRiskData() != null) creditCardVerificationCopy.setRiskData(RiskData.from(creditCardVerification.getRiskData()));
+        }
         return creditCardVerificationCopy;
     }
 }

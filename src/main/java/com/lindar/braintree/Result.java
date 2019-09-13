@@ -23,11 +23,13 @@ public class Result<T> {
 
     public static Result from(com.braintreegateway.Result result) {
         Result resultCopy = ObjectsAcolyte.copy(result, new Result());
-        resultCopy.setUsBankAccountVerification(UsBankAccountVerification.from(result.getUsBankAccountVerification()));
-        resultCopy.setCreditCardVerification(CreditCardVerification.from(result.getCreditCardVerification()));
-        resultCopy.setTransaction(Transaction.from(result.getTransaction()));
-        resultCopy.setSubscription(Subscription.from(result.getSubscription()));
-        resultCopy.setErrors(ValidationErrors.from(result.getErrors()));
+        if (!ObjectsAcolyte.objectNullOrEmpty(result)) {
+            if (result.getUsBankAccountVerification() != null) resultCopy.setUsBankAccountVerification(UsBankAccountVerification.from(result.getUsBankAccountVerification()));
+            if (result.getCreditCardVerification() != null) resultCopy.setCreditCardVerification(CreditCardVerification.from(result.getCreditCardVerification()));
+            if (result.getTransaction() != null) resultCopy.setTransaction(Transaction.from(result.getTransaction()));
+            if (result.getSubscription() != null) resultCopy.setSubscription(Subscription.from(result.getSubscription()));
+            if (result.getErrors() != null) resultCopy.setErrors(ValidationErrors.from(result.getErrors()));
+        }
         return resultCopy;
     }
 }

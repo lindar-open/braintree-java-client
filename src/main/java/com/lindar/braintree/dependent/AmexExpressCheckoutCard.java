@@ -27,8 +27,10 @@ public class AmexExpressCheckoutCard implements PaymentMethod {
 
     public static AmexExpressCheckoutCard from(com.braintreegateway.AmexExpressCheckoutCard amexExpressCheckoutCard ) {
         AmexExpressCheckoutCard amexExpressCheckoutCardCopy = ObjectsAcolyte.copy(amexExpressCheckoutCard, new AmexExpressCheckoutCard());
-        amexExpressCheckoutCardCopy.setSubscriptions(amexExpressCheckoutCard.getSubscriptions().stream().map(Subscription::from).collect(Collectors.toList()));
-        amexExpressCheckoutCardCopy.setIsDefault(amexExpressCheckoutCard.isDefault());
+        if (!ObjectsAcolyte.objectNullOrEmpty(amexExpressCheckoutCard)) {
+            if (amexExpressCheckoutCard.getSubscriptions() != null) amexExpressCheckoutCardCopy.setSubscriptions(amexExpressCheckoutCard.getSubscriptions().stream().map(Subscription::from).collect(Collectors.toList()));
+            amexExpressCheckoutCardCopy.setIsDefault(amexExpressCheckoutCard.isDefault());
+        }
         return amexExpressCheckoutCardCopy;
     }
 }

@@ -29,7 +29,9 @@ public class ApplePayCard implements PaymentMethod {
 
     public static ApplePayCard from(com.braintreegateway.ApplePayCard applePayCard) {
         ApplePayCard applePayCardCopy = ObjectsAcolyte.copy(applePayCard, new ApplePayCard());
-        applePayCardCopy.setSubscriptions(applePayCard.getSubscriptions().stream().map(Subscription::from).collect(Collectors.toList()));
+        if (!ObjectsAcolyte.objectNullOrEmpty(applePayCard)) {
+            if (applePayCard.getSubscriptions() != null) applePayCardCopy.setSubscriptions(applePayCard.getSubscriptions().stream().map(Subscription::from).collect(Collectors.toList()));
+        }
         return applePayCardCopy;
     }
 }

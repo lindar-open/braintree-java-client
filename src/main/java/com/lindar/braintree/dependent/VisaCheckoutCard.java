@@ -43,9 +43,11 @@ public class VisaCheckoutCard implements PaymentMethod {
 
     public static VisaCheckoutCard from(com.braintreegateway.VisaCheckoutCard visaCheckoutCard) {
         VisaCheckoutCard visaCheckoutCardCopy = ObjectsAcolyte.copy(visaCheckoutCard, new VisaCheckoutCard());
-        visaCheckoutCardCopy.setBillingAddress(Address.from(visaCheckoutCard.getBillingAddress()));
-        visaCheckoutCardCopy.setSubscriptions(visaCheckoutCard.getSubscriptions().stream().map(Subscription::from).collect(Collectors.toList()));
-        visaCheckoutCardCopy.setVerification(CreditCardVerification.from(visaCheckoutCard.getVerification()));
+        if (!ObjectsAcolyte.objectNullOrEmpty(visaCheckoutCard)) {
+            if (visaCheckoutCard.getBillingAddress() != null) visaCheckoutCardCopy.setBillingAddress(Address.from(visaCheckoutCard.getBillingAddress()));
+            if (visaCheckoutCard.getSubscriptions() != null) visaCheckoutCardCopy.setSubscriptions(visaCheckoutCard.getSubscriptions().stream().map(Subscription::from).collect(Collectors.toList()));
+            if (visaCheckoutCard.getVerification() != null) visaCheckoutCardCopy.setVerification(CreditCardVerification.from(visaCheckoutCard.getVerification()));
+        }
         return visaCheckoutCardCopy;
     }
 }

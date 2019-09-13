@@ -31,7 +31,9 @@ public class AndroidPayCard implements PaymentMethod {
 
     public static AndroidPayCard from(com.braintreegateway.AndroidPayCard androidPayCard) {
         AndroidPayCard androidPayCardCopy = ObjectsAcolyte.copy(androidPayCard, new AndroidPayCard());
-        androidPayCardCopy.setSubscriptions(androidPayCard.getSubscriptions().stream().map(Subscription::from).collect(Collectors.toList()));
+        if (!ObjectsAcolyte.objectNullOrEmpty(androidPayCard)) {
+            if (androidPayCard.getSubscriptions() != null) androidPayCardCopy.setSubscriptions(androidPayCard.getSubscriptions().stream().map(Subscription::from).collect(Collectors.toList()));
+        }
         return androidPayCardCopy;
     }
 }

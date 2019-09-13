@@ -71,10 +71,12 @@ public class Dispute {
 
     public static Dispute from(com.braintreegateway.Dispute dispute) {
         Dispute disputeCopy = ObjectsAcolyte.copy(dispute, new Dispute());
-        disputeCopy.setEvidence(dispute.getEvidence().stream().map(DisputeEvidence::from).collect(Collectors.toList()));
-        disputeCopy.setStatusHistory(dispute.getStatusHistory().stream().map(DisputeStatusHistory::from).collect(Collectors.toList()));
-        disputeCopy.setTransaction(DisputeTransaction.from(dispute.getTransaction()));
-        disputeCopy.setTransactionDetails(TransactionDetails.from(dispute.getTransactionDetails()));
+        if (!ObjectsAcolyte.objectNullOrEmpty(dispute)) {
+            if (dispute.getEvidence() != null) disputeCopy.setEvidence(dispute.getEvidence().stream().map(DisputeEvidence::from).collect(Collectors.toList()));
+            if (dispute.getStatusHistory() != null) disputeCopy.setStatusHistory(dispute.getStatusHistory().stream().map(DisputeStatusHistory::from).collect(Collectors.toList()));
+            if (dispute.getTransaction() != null) disputeCopy.setTransaction(DisputeTransaction.from(dispute.getTransaction()));
+            if (dispute.getTransactionDetails() != null) disputeCopy.setTransactionDetails(TransactionDetails.from(dispute.getTransactionDetails()));
+        }
         return disputeCopy;
     }
 }

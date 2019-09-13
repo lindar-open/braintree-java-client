@@ -41,8 +41,10 @@ public class SamsungPayCard implements PaymentMethod {
 
     public static SamsungPayCard from(com.braintreegateway.SamsungPayCard samsungPayCard) {
         SamsungPayCard samsungPayCardCopy = ObjectsAcolyte.copy(samsungPayCard, new SamsungPayCard());
-        samsungPayCardCopy.setBillingAddress(Address.from(samsungPayCard.getBillingAddress()));
-        samsungPayCardCopy.setSubscriptions(samsungPayCard.getSubscriptions().stream().map(Subscription::from).collect(Collectors.toList()));
+        if (!ObjectsAcolyte.objectNullOrEmpty(samsungPayCard)) {
+            if (samsungPayCard.getBillingAddress() != null) samsungPayCardCopy.setBillingAddress(Address.from(samsungPayCard.getBillingAddress()));
+            if (samsungPayCard.getSubscriptions() != null) samsungPayCardCopy.setSubscriptions(samsungPayCard.getSubscriptions().stream().map(Subscription::from).collect(Collectors.toList()));
+        }
         return samsungPayCardCopy;
     }
 }

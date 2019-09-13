@@ -60,7 +60,9 @@ public class UsBankAccountVerification {
 
     public static UsBankAccountVerification from(com.braintreegateway.UsBankAccountVerification usBankAccountVerification) {
         UsBankAccountVerification usBankAccountVerificationCopy = ObjectsAcolyte.copy(usBankAccountVerification, new UsBankAccountVerification());
-        usBankAccountVerificationCopy.setUsBankAccount(UsBankAccount.from(usBankAccountVerification.getUsBankAccount()));
+        if (!ObjectsAcolyte.objectNullOrEmpty(usBankAccountVerification)) {
+            if (usBankAccountVerification.getUsBankAccount() != null) usBankAccountVerificationCopy.setUsBankAccount(UsBankAccount.from(usBankAccountVerification.getUsBankAccount()));
+        }
         return usBankAccountVerificationCopy;
     }
 }
