@@ -6,17 +6,17 @@
 
     <groupId>com.lindar</groupId>
     <artifactId>braintree-java-client</artifactId>
-    <version>1.0.2</version>
+    <version>1.1.0</version>
 
 
     <distributionManagement>
         <snapshotRepository>
             <id>lindar-maven-repo</id>
-            <url>http://nexus-lindar.mircloud.host/content/repositories/lindar-maven-repo/</url>
+            <url>https://nexus-lindar.mircloud.host/content/repositories/lindar-maven-repo/</url>
         </snapshotRepository>
         <repository>
             <id>lindar-maven-repo-release</id>
-            <url>http://nexus-lindar.mircloud.host/content/repositories/lindar-maven-repo-release/</url>
+            <url>https://nexus-lindar.mircloud.host/content/repositories/lindar-maven-repo-release/</url>
         </repository>
     </distributionManagement>
 
@@ -25,19 +25,20 @@
         <dependency>
             <groupId>com.lindar</groupId>
             <artifactId>acolyte</artifactId>
-            <version>1.4.3</version>
+            <version>1.6.0</version>
         </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.10</version>
+            <version>1.18.22</version>
+            <scope>compile</scope>
         </dependency>
 
         <dependency>
             <groupId>com.braintreepayments.gateway</groupId>
             <artifactId>braintree-java</artifactId>
-            <version>2.104.0</version>
+            <version>2.109.0</version>
         </dependency>
     </dependencies>
 
@@ -55,29 +56,5 @@
             </plugin>
         </plugins>
     </build>
-
-    <repositories>
-        <repository>
-            <id>lindar-maven-repo</id>
-            <name>Lindar Maven Repo</name>
-            <url>http://nexus-lindar.mircloud.host/content/repositories/lindar-maven-repo/</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>lindar-maven-repo-release</id>
-            <name>Lindar Maven Repo Release</name>
-            <url>http://nexus-lindar.mircloud.host/content/repositories/lindar-maven-repo-release/</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>lindar-thirdparty</id>
-            <name>Lindar Thirdparty</name>
-            <url>http://nexus-lindar.mircloud.host/content/repositories/thirdparty/</url>
-        </repository>
-    </repositories>
 
 </project>
