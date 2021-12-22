@@ -8,19 +8,6 @@
     <artifactId>braintree-java-client</artifactId>
     <version>1.1.0</version>
 
-
-    <distributionManagement>
-        <snapshotRepository>
-            <id>lindar-maven-repo</id>
-            <url>https://nexus-lindar.mircloud.host/content/repositories/lindar-maven-repo/</url>
-        </snapshotRepository>
-        <repository>
-            <id>lindar-maven-repo-release</id>
-            <url>https://nexus-lindar.mircloud.host/content/repositories/lindar-maven-repo-release/</url>
-        </repository>
-    </distributionManagement>
-
-
     <dependencies>
         <dependency>
             <groupId>com.lindar</groupId>
@@ -53,6 +40,11 @@
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>3.0.0-M1</version>
             </plugin>
         </plugins>
     </build>
